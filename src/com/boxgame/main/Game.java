@@ -36,6 +36,7 @@ public class Game extends Canvas implements Runnable
     BufferedImage finish;
     BufferedImage teleporter;
     BufferedImage sprite_sheet;
+    BufferedImage guard;
 
     private BufferedImage level1;
     private BufferedImage level2;
@@ -46,6 +47,7 @@ public class Game extends Canvas implements Runnable
     private BufferedImage level7;
     private BufferedImage level8;
     private BufferedImage level9;
+    private BufferedImage level10;
 
     public STATE gameState = STATE.Menu;
 
@@ -58,6 +60,7 @@ public class Game extends Canvas implements Runnable
         finish = loader.loadImage("/finish.png");
         teleporter = loader.loadImage("/teleporter.png");
         sprite_sheet = loader.loadImage("/sprite_sheet.png");
+        guard = loader.loadImage("/guard.png");
         level1 = loader.loadImage("/level1.png");
         level2 = loader.loadImage("/level2.png");
         level3 = loader.loadImage("/level3.png");
@@ -67,6 +70,7 @@ public class Game extends Canvas implements Runnable
         level7 = loader.loadImage("/level7.png");
         level8 = loader.loadImage("/level8.png");
         level9 = loader.loadImage("/level9.png");
+        level10 = loader.loadImage("/level10.png");
 
         handler = new Handler();
         menu = new Menu(this);
@@ -220,22 +224,21 @@ public class Game extends Canvas implements Runnable
 
         switch (level)
         {
-            case 1 : image = level1; break;
-            case 2 : image = level2; break;
-            case 3 : image = level3; break;
-            case 4 : image = level4; break;
-            case 5 : image = level5; break;
-            case 6 : image = level6; break;
-            case 7 : image = level7; break;
-            case 8 : image = level8; break;
-            case 9 : image = level9; break;
+            case 1  : image = level1;  break;
+            case 2  : image = level2;  break;
+            case 3  : image = level3;  break;
+            case 4  : image = level4;  break;
+            case 5  : image = level5;  break;
+            case 6  : image = level6;  break;
+            case 7  : image = level7;  break;
+            case 8  : image = level8;  break;
+            case 9  : image = level9;  break;
+            case 10 : image = level10; break;
             default : image = null; load = false;
         }
 
         if (load)
         {
-            int i = 1;
-
             int w = image.getWidth();
             int h = image.getHeight();
 
@@ -258,10 +261,10 @@ public class Game extends Canvas implements Runnable
                         handler.addObject(new Finish(xx * 64, yy * 64, ID.Finish, this));
 
                     if (red == 255 && green == 255 && blue == 0)
-                    {
                         handler.addObject(new Teleporter(xx * 64, yy * 64, ID.Teleporter, this));
-                        i++;
-                    }
+
+                    if (red == 255 && green == 0 && blue == 255)
+                        handler.addObject(new Guard(xx * 64, yy * 64, ID.Guard, this));
                 }
             }
         }

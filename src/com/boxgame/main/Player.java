@@ -66,6 +66,11 @@ public class Player extends GameObject
                     x = 140;
                     y = 1300;
                 }
+
+                if (tempObject.getId() == ID.Guard)
+                {
+                    game.loadLevel();
+                }
             }
         }
 

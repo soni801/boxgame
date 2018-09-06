@@ -9,5 +9,6 @@ public enum ID
     Player,
     Block,
     Teleporter,
+    Guard,
     Finish
 }
