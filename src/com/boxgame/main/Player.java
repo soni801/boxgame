@@ -42,37 +42,37 @@ public class Player extends GameObject
 
             if (getBounds().intersects(tempObject.getBounds()))
             {
-                if (tempObject.getId() == ID.Block)
+                switch (tempObject.getId())
                 {
-                    x += velX * -1;
-                    y += velY * -1;
-
-                    collision = true;
-                }
-
-                if (tempObject.getId() == ID.Finish)
-                {
-                    if (!loaded)
-                    {
-                        game.level++;
+                    case Block :
+                        x += velX * -1;
+                        y += velY * -1;
+                        collision = true;
+                        break;
+                    case Finish :
+                        if (!loaded)
+                        {
+                            game.level++;
+                            game.loadLevel();
+                            loaded = true;
+                            timer = 100;
+                        }
+                        break;
+                    case Teleporter :
+                        switch (game.level)
+                        {
+                            case 9  : x = 140;  y = 1300; break;
+                            case 10 : x = 2450; y = 2440; break;
+                        }
+                        break;
+                    case Guard :
                         game.loadLevel();
-                        loaded = true;
-                        timer = 100;
-                    }
-                }
-
-                if (tempObject.getId() == ID.Teleporter)
-                {
-                    x = 140;
-                    y = 1300;
-                }
-
-                if (tempObject.getId() == ID.Guard)
-                {
-                    game.loadLevel();
+                        break;
                 }
             }
         }
+
+        System.out.println(x + ", " + y);
 
         if (timer > 0) timer--;
         if (timer == 0) loaded = false;
