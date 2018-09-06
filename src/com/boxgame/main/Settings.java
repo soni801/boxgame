@@ -25,8 +25,10 @@ public class Settings
     {
         switch (playerImage)
         {
-            case 1  : playerImageString = "Diamond";      break;
-            case 2  : playerImageString = "Golden Apple"; break;
+            case 1  : playerImageString = "Diamond";       break;
+            case 2  : playerImageString = "Golden Apple";  break;
+            case 3  : playerImageString = "Golden Carrot"; break;
+            case 4  : playerImageString = "Gunpowder";     break;
             default : playerImageString = null;
         }
     }
@@ -66,9 +68,11 @@ public class Settings
         g.setFont(button);
         if (renderDropDownMenu)
         {
-            g.drawRoundRect(Game.WIDTH / 2 - 100, 350, 200, 10 + 35 + 35 + 10, 50, 50);
+            g.drawRoundRect(Game.WIDTH / 2 - 100, 350, 200, 10 + 35 + 35 + 35 + 35 + 10, 50, 50);
             g.drawString("Diamond", Game.WIDTH / 2 - 100 + 10, 350 + 35);
             g.drawString("Golden Apple", Game.WIDTH / 2 - 100 + 10, 350 + 70);
+            g.drawString("Golden Carrot", Game.WIDTH / 2 - 100 + 10, 350 + 105);
+            g.drawString("Gunpowder", Game.WIDTH / 2 - 100 + 10, 350 + 140);
         }
         else
         {

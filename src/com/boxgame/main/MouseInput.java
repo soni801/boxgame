@@ -99,6 +99,16 @@ public class MouseInput extends MouseAdapter
                     settings.playerImage = 2;
                     settings.renderDropDownMenu = false;
                 }
+                else if (mouseOver(mx, my, Game.WIDTH / 2 - 100, 350 + 105 - 35, 200, 35))
+                {
+                    settings.playerImage = 3;
+                    settings.renderDropDownMenu = false;
+                }
+                else if (mouseOver(mx, my, Game.WIDTH / 2 - 100, 350 + 140 - 35, 200, 35))
+                {
+                    settings.playerImage = 4;
+                    settings.renderDropDownMenu = false;
+                }
                 else
                 {
                     settings.renderDropDownMenu = false;

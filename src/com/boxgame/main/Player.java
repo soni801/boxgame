@@ -85,6 +85,8 @@ public class Player extends GameObject
         {
             case 1  : player_image = ss.grabImage(1, 1, 32, 32); break;
             case 2  : player_image = ss.grabImage(1, 2, 32, 32); break;
+            case 3  : player_image = ss.grabImage(1, 3, 32, 32); break;
+            case 4  : player_image = ss.grabImage(1, 4, 32, 32); break;
             default : player_image = null;
         }
     }
