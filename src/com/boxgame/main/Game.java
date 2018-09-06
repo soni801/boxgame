@@ -13,7 +13,7 @@ public class Game extends Canvas implements Runnable
     private static final long serialVersionUID = 1550691097823471818L;
 
     public static final int WIDTH = 800, HEIGHT = WIDTH / 12 * 9;
-    public static String VERSION = "beta0.2.0";
+    public static String VERSION = "beta0.2.1";
     public int level;
     public boolean inGame;
 

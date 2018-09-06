@@ -72,7 +72,7 @@ public class Player extends GameObject
             }
         }
 
-        System.out.println(x + ", " + y);
+        //System.out.println(x + ", " + y);
 
         if (timer > 0) timer--;
         if (timer == 0) loaded = false;

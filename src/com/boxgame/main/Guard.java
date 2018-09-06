@@ -23,7 +23,7 @@ public class Guard extends GameObject
 
     public void render(Graphics g)
     {
-        g.drawImage(game.guard, x, y, 64, 64, null);
+        g.drawImage(game.guard, x + 2, y + 2, 60, 60, null);
     }
 
     @Override

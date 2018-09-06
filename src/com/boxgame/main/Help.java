@@ -24,12 +24,13 @@ public class Help
         g.drawString("Help", 320, 100);
 
         g.setFont(text);
-        g.drawString("Try to find the exit.", 265, 160);
-        g.drawString("You can not go through walls.", 185, 200);
-        g.drawString("Blue blocks teleport you", 222, 240);
-        g.drawString("to another place on the level.", 190, 280);
-        g.drawString("The green block is the goal.", 200, 320);
-        g.drawString("HAVE FUN!", 320, 360);
+        g.drawString("Try to find the exit.", 265, 140);
+        g.drawString("You can not go through walls.", 185, 180);
+        g.drawString("Blue blocks teleport you", 222, 220);
+        g.drawString("to another place on the level.", 190, 260);
+        g.drawString("The green block is the goal.", 200, 300);
+        g.drawString("You can find guards around the level.", 135, 340);
+        g.drawString("If you touch a guard, the level resets.", 140, 380);
 
         g.setFont(button);
         g.drawRoundRect(Game.WIDTH / 2 - 100, 420, 200, 50, 50, 50);
