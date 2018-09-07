@@ -89,24 +89,44 @@ public class MouseInput extends MouseAdapter
             }
             else
             {
-                if (mouseOver(mx, my, Game.WIDTH / 2 - 100, 350 + 35 - 35, 200, 35))
+                if (mouseOver(mx, my, Game.WIDTH / 2 - 150, 350 - 70 - 35, 300, 35))
                 {
                     settings.playerImage = 1;
                     settings.renderDropDownMenu = false;
                 }
-                else if (mouseOver(mx, my, Game.WIDTH / 2 - 100, 350 + 70 - 35, 200, 35))
+                else if (mouseOver(mx, my, Game.WIDTH / 2 - 150, 350 - 35 - 35, 300, 35))
                 {
                     settings.playerImage = 2;
                     settings.renderDropDownMenu = false;
                 }
-                else if (mouseOver(mx, my, Game.WIDTH / 2 - 100, 350 + 105 - 35, 200, 35))
+                else if (mouseOver(mx, my, Game.WIDTH / 3 - 150, 350 - 35, 300, 35))
                 {
                     settings.playerImage = 3;
                     settings.renderDropDownMenu = false;
                 }
-                else if (mouseOver(mx, my, Game.WIDTH / 2 - 100, 350 + 140 - 35, 200, 35))
+                else if (mouseOver(mx, my, Game.WIDTH / 2 - 150, 350 + 35 - 35, 300, 35))
                 {
                     settings.playerImage = 4;
+                    settings.renderDropDownMenu = false;
+                }
+                else if (mouseOver(mx, my, Game.WIDTH / 2 - 150, 350 + 70 - 35, 300, 35))
+                {
+                    settings.playerImage = 5;
+                    settings.renderDropDownMenu = false;
+                }
+                else if (mouseOver(mx, my, Game.WIDTH / 2 - 150, 350 + 105 - 35, 300, 35))
+                {
+                    settings.playerImage = 6;
+                    settings.renderDropDownMenu = false;
+                }
+                else if (mouseOver(mx, my, Game.WIDTH / 2 - 150, 350 + 140 - 35, 300, 35))
+                {
+                    settings.playerImage = 7;
+                    settings.renderDropDownMenu = false;
+                }
+                else if (mouseOver(mx, my, Game.WIDTH / 2 - 150, 350 + 175 - 35, 300, 35))
+                {
+                    settings.playerImage = 8;
                     settings.renderDropDownMenu = false;
                 }
                 else

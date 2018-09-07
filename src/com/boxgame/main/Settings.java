@@ -85,8 +85,8 @@ public class Settings
             g.drawString("Skin", 370, 345);
 
             g.setFont(button);
-            g.drawRoundRect(Game.WIDTH / 2 - 100, 350, 200, 50, 50, 50);
-            g.drawString(playerImageString, Game.WIDTH / 2 - 100 + 10, 350 + 35);
+            g.drawRoundRect(Game.WIDTH / 2 - 150, 350, 300, 50, 50, 50);
+            g.drawString(playerImageString, Game.WIDTH / 2 - 150 + 10, 350 + 35);
 
             g.drawRoundRect(Game.WIDTH / 2 - 100, 420, 200, 50, 50, 50);
             g.drawString("BACK", Game.WIDTH / 2 - 100 + 65, 455);
