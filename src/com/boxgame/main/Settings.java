@@ -25,10 +25,14 @@ public class Settings
     {
         switch (playerImage)
         {
-            case 1  : playerImageString = "Diamond";       break;
-            case 2  : playerImageString = "Golden Apple";  break;
-            case 3  : playerImageString = "Golden Carrot"; break;
-            case 4  : playerImageString = "Gunpowder";     break;
+            case 1  : playerImageString = "Diamond";          break;
+            case 2  : playerImageString = "Golden Apple";     break;
+            case 3  : playerImageString = "Golden Carrot";    break;
+            case 4  : playerImageString = "Gunpowder";        break;
+            case 5  : playerImageString = "Glinsering Melon"; break;
+            case 6  : playerImageString = "Coal";             break;
+            case 7  : playerImageString = "Lapis Lazuli";     break;
+            case 8  : playerImageString = "Redstone Dust";    break;
             default : playerImageString = null;
         }
     }
