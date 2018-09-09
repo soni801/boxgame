@@ -29,6 +29,7 @@ public class Game extends Canvas implements Runnable
     private KeyInput keyInput;
     private Paused paused;
     private Help help;
+    private MouseInput mouseInput;
 
     private BufferedImage level1;
     private BufferedImage level2;
@@ -40,6 +41,8 @@ public class Game extends Canvas implements Runnable
     private BufferedImage level8;
     private BufferedImage level9;
     private BufferedImage level10;
+
+    BufferedImage main_menu;
 
     BufferedImage block;
     BufferedImage floor;
@@ -67,6 +70,8 @@ public class Game extends Canvas implements Runnable
         level9 = loader.loadImage("/levels/level9.png");
         level10 = loader.loadImage("/levels/level10.png");
 
+        main_menu = loader.loadImage("/menus/main_menu.png");
+
         block = loader.loadImage("/textures/block.png");
         floor = loader.loadImage("/textures/floor.png");
         finish = loader.loadImage("/textures/finish.png");
@@ -85,9 +90,11 @@ public class Game extends Canvas implements Runnable
         settings = new Settings(keyInput, this);
         paused = new Paused();
         help = new Help();
+        mouseInput = new MouseInput(this, handler, keyInput, settings, menu);
 
         this.addKeyListener(keyInput);
-        this.addMouseListener(new MouseInput(this, handler, keyInput, settings));
+        this.addMouseListener(mouseInput);
+        this.addMouseMotionListener(mouseInput);
 
         level = 0;
         inGame = false;

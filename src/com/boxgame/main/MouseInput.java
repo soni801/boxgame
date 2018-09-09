@@ -9,13 +9,15 @@ public class MouseInput extends MouseAdapter
     private Handler handler;
     private KeyInput keyInput;
     private Settings settings;
+    private Menu menu;
 
-    public MouseInput(Game game, Handler handler, KeyInput keyInput, Settings settings)
+    public MouseInput(Game game, Handler handler, KeyInput keyInput, Settings settings, Menu menu)
     {
         this.game = game;
         this.handler = handler;
         this.keyInput = keyInput;
         this.settings = settings;
+        this.menu = menu;
     }
 
     @Override
@@ -26,22 +28,22 @@ public class MouseInput extends MouseAdapter
 
         if (game.gameState == STATE.Menu)
         {
-            if (mouseOver(mx, my, Game.WIDTH / 2 - 100, 240, 200, 50))
+            if (mouseOver(mx, my, 0, 430, Game.WIDTH, 30))
             {
                 game.gameState = STATE.Game;
                 game.level = 1;
                 game.loadLevel();
                 game.inGame = true;
             }
-            else if (mouseOver(mx, my, Game.WIDTH / 2 - 100, 300, 200, 50))
+            else if (mouseOver(mx, my, 0, 460, Game.WIDTH, 30))
             {
                 game.gameState = STATE.Help;
             }
-            else if (mouseOver(mx, my, Game.WIDTH / 2 - 100, 360, 200, 50))
+            else if (mouseOver(mx, my, 0, 490, Game.WIDTH, 30))
             {
                 game.gameState = STATE.Settings;
             }
-            else if (mouseOver(mx, my, Game.WIDTH / 2 - 100, 420, 200, 50))
+            else if (mouseOver(mx, my, 0, 520, Game.WIDTH, 30))
             {
                 System.exit(1);
             }
@@ -168,6 +170,34 @@ public class MouseInput extends MouseAdapter
     public void mouseReleased(MouseEvent e)
     {
 
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e)
+    {
+        int mx = e.getX();
+        int my = e.getY();
+
+        if (game.gameState == STATE.Menu)
+        {
+            if (mouseOver(mx, my, 0, 430, Game.WIDTH, 30))
+            {
+                menu.mouseOver = 1;
+            }
+            else if (mouseOver(mx, my, 0, 460, Game.WIDTH, 30))
+            {
+                menu.mouseOver = 2;
+            }
+            else if (mouseOver(mx, my, 0, 490, Game.WIDTH, 30))
+            {
+                menu.mouseOver = 3;
+            }
+            else if (mouseOver(mx, my, 0, 520, Game.WIDTH, 30))
+            {
+                menu.mouseOver = 4;
+            }
+            else menu.mouseOver = 0;
+        }
     }
 
     private boolean mouseOver(int mx, int my, int x, int y, int width, int height)
