@@ -10,14 +10,16 @@ public class MouseInput extends MouseAdapter
     private KeyInput keyInput;
     private Settings settings;
     private Menu menu;
+    private Paused paused;
 
-    public MouseInput(Game game, Handler handler, KeyInput keyInput, Settings settings, Menu menu)
+    public MouseInput(Game game, Handler handler, KeyInput keyInput, Settings settings, Menu menu, Paused paused)
     {
         this.game = game;
         this.handler = handler;
         this.keyInput = keyInput;
         this.settings = settings;
         this.menu = menu;
+        this.paused = paused;
     }
 
     @Override
@@ -139,19 +141,29 @@ public class MouseInput extends MouseAdapter
         }
         else if (game.gameState == STATE.Paused)
         {
-            if (mouseOver(mx, my, Game.WIDTH / 2 - 100, 200, 200, 50))
+            if (mouseOver(mx, my, 0, 400, Game.WIDTH, 30))
             {
                 game.gameState = STATE.Game;
             }
-            else if (mouseOver(mx, my, Game.WIDTH / 2 - 100, 260, 200, 50))
+            else if (mouseOver(mx, my, 0, 430, Game.WIDTH, 30))
             {
                 game.gameState = STATE.Help;
             }
-            else if (mouseOver(mx, my, Game.WIDTH / 2 - 100, 320, 200, 50))
+            else if (mouseOver(mx, my, 0, 460, Game.WIDTH, 30))
             {
                 game.gameState = STATE.Settings;
             }
-            else if (mouseOver(mx, my, Game.WIDTH / 2 - 100, 380, 200, 50))
+            else if (mouseOver(mx, my, 0, 490, Game.WIDTH, 30))
+            {
+                game.gameState = STATE.Menu;
+                for (int i = handler.object.size(); handler.object.size() > 0; i--)
+                {
+                    GameObject tempObject = handler.object.get(i - 1);
+
+                    handler.removeObject(tempObject);
+                }
+            }
+            else if (mouseOver(mx, my, 0, 520, Game.WIDTH, 30))
             {
                 System.exit(1);
             }
@@ -197,6 +209,30 @@ public class MouseInput extends MouseAdapter
                 menu.mouseOver = 4;
             }
             else menu.mouseOver = 0;
+        }
+        else if (game.gameState == STATE.Paused)
+        {
+            if (mouseOver(mx, my, 0, 400, Game.WIDTH, 30))
+            {
+                paused.mouseOver = 1;
+            }
+            else if (mouseOver(mx, my, 0, 430, Game.WIDTH, 30))
+            {
+                paused.mouseOver = 2;
+            }
+            else if (mouseOver(mx, my, 0, 460, Game.WIDTH, 30))
+            {
+                paused.mouseOver = 3;
+            }
+            else if (mouseOver(mx, my, 0, 490, Game.WIDTH, 30))
+            {
+                paused.mouseOver = 4;
+            }
+            else if (mouseOver(mx, my, 0, 520, Game.WIDTH, 30))
+            {
+                paused.mouseOver = 5;
+            }
+            else paused.mouseOver = 0;
         }
     }
 

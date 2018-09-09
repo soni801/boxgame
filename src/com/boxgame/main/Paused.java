@@ -4,6 +4,17 @@ import java.awt.*;
 
 public class Paused
 {
+    public int mouseOver;
+
+    private Game game;
+
+    public Paused(Game game)
+    {
+        this.game = game;
+
+        mouseOver = 0;
+    }
+
     public void tick()
     {
 
@@ -11,25 +22,23 @@ public class Paused
 
     public void render(Graphics g)
     {
-        Font title = new Font("arial", Font.BOLD, 70);
-        Font text = new Font("arial", Font.BOLD, 30);
-        Font button = new Font("arial", Font.BOLD, 25);
+        g.setColor(new Color(0f, 0f, 0f, .25f));
 
-        g.setColor(Color.BLACK);
-        g.setFont(title);
-        g.drawString("Paused", 275, 100);
+        switch (mouseOver)
+        {
+            case 1 : g.fillRect(0, 400, Game.WIDTH, 30); break;
+            case 2 : g.fillRect(0, 430, Game.WIDTH, 30); break;
+            case 3 : g.fillRect(0, 460, Game.WIDTH, 30); break;
+            case 4 : g.fillRect(0, 490, Game.WIDTH, 30); break;
+            case 5 : g.fillRect(0, 520, Game.WIDTH, 30); break;
+        }
 
-        g.setFont(button);
-        g.drawRoundRect(Game.WIDTH / 2 - 100, 200, 200, 50, 50, 50);
-        g.drawString("CONTINUE", Game.WIDTH / 2 - 100 + 35, 235);
+        g.drawImage(game.pause_menu, 0, -45, null);
 
-        g.drawRoundRect(Game.WIDTH / 2 - 100, 260, 200, 50, 50, 50);
-        g.drawString("HELP", Game.WIDTH / 2 - 100 + 66, 295);
-
-        g.drawRoundRect(Game.WIDTH / 2 - 100, 320, 200, 50, 50, 50);
-        g.drawString("SETTINGS", Game.WIDTH / 2 - 100 + 36, 355);
-
-        g.drawRoundRect(Game.WIDTH / 2 - 100, 380, 200, 50, 50, 50);
-        g.drawString("QUIT", Game.WIDTH / 2 - 100 + 69, 415);
+        //g.drawRect(0, 400, Game.WIDTH, 30);
+        //g.drawRect(0, 430, Game.WIDTH, 30);
+        //g.drawRect(0, 460, Game.WIDTH, 30);
+        //g.drawRect(0, 490, Game.WIDTH, 30);
+        //g.drawRect(0, 520, Game.WIDTH, 30);
     }
 }
