@@ -47,6 +47,9 @@ public class Settings
         g.setFont(title);
         g.drawString("Settings", 260, 100);
 
+        g.setFont(new Font("arial", Font.PLAIN, 20));
+        g.drawString(Game.VERSION, 10, Game.HEIGHT - 55);
+
         if (renderDropDownMenu)
         {
             g.setFont(button);
