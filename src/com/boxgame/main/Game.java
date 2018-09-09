@@ -30,14 +30,6 @@ public class Game extends Canvas implements Runnable
     private Paused paused;
     private Help help;
 
-    BufferedImage logo;
-    BufferedImage block;
-    BufferedImage floor;
-    BufferedImage finish;
-    BufferedImage teleporter;
-    BufferedImage sprite_sheet;
-    BufferedImage guard;
-
     private BufferedImage level1;
     private BufferedImage level2;
     private BufferedImage level3;
@@ -49,28 +41,40 @@ public class Game extends Canvas implements Runnable
     private BufferedImage level9;
     private BufferedImage level10;
 
+    BufferedImage block;
+    BufferedImage floor;
+    BufferedImage finish;
+    BufferedImage teleporter;
+    BufferedImage guard;
+
+    BufferedImage logo;
+    BufferedImage sprite_sheet;
+
     public STATE gameState = STATE.Menu;
 
     public Game()
     {
         BufferedImageLoader loader = new BufferedImageLoader();
+
+        level1 = loader.loadImage("/levels/level1.png");
+        level2 = loader.loadImage("/levels/level2.png");
+        level3 = loader.loadImage("/levels/level3.png");
+        level4 = loader.loadImage("/levels/level4.png");
+        level5 = loader.loadImage("/levels/level5.png");
+        level6 = loader.loadImage("/levels/level6.png");
+        level7 = loader.loadImage("/levels/level7.png");
+        level8 = loader.loadImage("/levels/level8.png");
+        level9 = loader.loadImage("/levels/level9.png");
+        level10 = loader.loadImage("/levels/level10.png");
+
+        block = loader.loadImage("/textures/block.png");
+        floor = loader.loadImage("/textures/floor.png");
+        finish = loader.loadImage("/textures/finish.png");
+        teleporter = loader.loadImage("/textures/teleporter.png");
+        guard = loader.loadImage("/textures/guard.png");
+
         logo = loader.loadImage("/logo.png");
-        block = loader.loadImage("/block.png");
-        floor = loader.loadImage("/floor.png");
-        finish = loader.loadImage("/finish.png");
-        teleporter = loader.loadImage("/teleporter.png");
         sprite_sheet = loader.loadImage("/sprite_sheet.png");
-        guard = loader.loadImage("/guard.png");
-        level1 = loader.loadImage("/level1.png");
-        level2 = loader.loadImage("/level2.png");
-        level3 = loader.loadImage("/level3.png");
-        level4 = loader.loadImage("/level4.png");
-        level5 = loader.loadImage("/level5.png");
-        level6 = loader.loadImage("/level6.png");
-        level7 = loader.loadImage("/level7.png");
-        level8 = loader.loadImage("/level8.png");
-        level9 = loader.loadImage("/level9.png");
-        level10 = loader.loadImage("/level10.png");
 
         handler = new Handler();
         menu = new Menu(this);
