@@ -13,7 +13,6 @@ public class Game extends Canvas implements Runnable
     private static final long serialVersionUID = 1550691097823471818L;
 
     public static final int WIDTH = 800, HEIGHT = WIDTH / 12 * 9;
-    public static String VERSION = "beta0.2.3";
     public int level;
     public boolean inGame;
 
@@ -44,6 +43,8 @@ public class Game extends Canvas implements Runnable
 
     BufferedImage main_menu;
     BufferedImage pause_menu;
+    BufferedImage settings_menu;
+    BufferedImage settings_change_skin_menu;
 
     BufferedImage block;
     BufferedImage floor;
@@ -73,6 +74,8 @@ public class Game extends Canvas implements Runnable
 
         main_menu = loader.loadImage("/menus/main_menu.png");
         pause_menu = loader.loadImage("/menus/pause_menu.png");
+        settings_menu = loader.loadImage("/menus/settings_menu.png");
+        settings_change_skin_menu = loader.loadImage("/menus/settings_change_skin_menu.png");
 
         block = loader.loadImage("/textures/block.png");
         floor = loader.loadImage("/textures/floor.png");

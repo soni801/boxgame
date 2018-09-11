@@ -59,84 +59,91 @@ public class MouseInput extends MouseAdapter
         }
         else if (game.gameState == STATE.Settings)
         {
-            if (!settings.renderDropDownMenu)
+            switch (settings.page)
             {
-                if (mouseOver(mx, my, Game.WIDTH / 2 - 50, 200, 100, 50))
-                {
-                    keyInput.editing = 1;
-                }
-                else if (mouseOver(mx, my, Game.WIDTH / 2 - 50, 260, 100, 50))
-                {
-                    keyInput.editing = 2;
-                }
-                else if (mouseOver(mx, my, Game.WIDTH / 2 - 50 - 100 - 10, 260, 100, 50))
-                {
-                    keyInput.editing = 3;
-                }
-                else if (mouseOver(mx, my, Game.WIDTH / 2 - 50 + 100 + 10, 260, 100, 50))
-                {
-                    keyInput.editing = 4;
-                }
-                else if (mouseOver(mx, my, Game.WIDTH / 2 - 50 - 100 - 10 - 100 - 10, 200, 100, 50))
-                {
-                    keyInput.editing = 5;
-                }
-                else if (mouseOver(mx, my, Game.WIDTH / 2 - 100, 350, 200, 50))
-                {
-                    settings.renderDropDownMenu = true;
-                }
-                else if (mouseOver(mx, my, Game.WIDTH / 2 - 100, 420, 200, 50))
-                {
-                    if (!game.inGame) game.gameState = STATE.Menu;
-                    else game.gameState = STATE.Paused;
-                }
-            }
-            else
-            {
-                if (mouseOver(mx, my, Game.WIDTH / 2 - 150, 350 - 70 - 35, 300, 35))
-                {
-                    settings.playerImage = 1;
-                    settings.renderDropDownMenu = false;
-                }
-                else if (mouseOver(mx, my, Game.WIDTH / 2 - 150, 350 - 35 - 35, 300, 35))
-                {
-                    settings.playerImage = 2;
-                    settings.renderDropDownMenu = false;
-                }
-                else if (mouseOver(mx, my, Game.WIDTH / 3 - 150, 350 - 35, 300, 35))
-                {
-                    settings.playerImage = 3;
-                    settings.renderDropDownMenu = false;
-                }
-                else if (mouseOver(mx, my, Game.WIDTH / 2 - 150, 350 + 35 - 35, 300, 35))
-                {
-                    settings.playerImage = 4;
-                    settings.renderDropDownMenu = false;
-                }
-                else if (mouseOver(mx, my, Game.WIDTH / 2 - 150, 350 + 70 - 35, 300, 35))
-                {
-                    settings.playerImage = 5;
-                    settings.renderDropDownMenu = false;
-                }
-                else if (mouseOver(mx, my, Game.WIDTH / 2 - 150, 350 + 105 - 35, 300, 35))
-                {
-                    settings.playerImage = 6;
-                    settings.renderDropDownMenu = false;
-                }
-                else if (mouseOver(mx, my, Game.WIDTH / 2 - 150, 350 + 140 - 35, 300, 35))
-                {
-                    settings.playerImage = 7;
-                    settings.renderDropDownMenu = false;
-                }
-                else if (mouseOver(mx, my, Game.WIDTH / 2 - 150, 350 + 175 - 35, 300, 35))
-                {
-                    settings.playerImage = 8;
-                    settings.renderDropDownMenu = false;
-                }
-                else
-                {
-                    settings.renderDropDownMenu = false;
-                }
+                case 0 :
+                    if (mouseOver(mx, my, 0, 460, Game.WIDTH, 30))
+                    {
+                        settings.page = 1;
+                    }
+                    else if (mouseOver(mx, my, 0, 490, Game.WIDTH, 30))
+                    {
+                        settings.page = 2;
+                        settings.mouseOver = 0;
+                    }
+                    else if (mouseOver(mx, my, 0, 520, Game.WIDTH, 30))
+                    {
+                        if (!game.inGame) game.gameState = STATE.Menu;
+                        else game.gameState = STATE.Paused;
+                    }
+                    break;
+                case 1 :
+                    if (mouseOver(mx, my, Game.WIDTH / 2 - 50, 240, 100, 50))
+                    {
+                        keyInput.editing = 1;
+                    }
+                    else if (mouseOver(mx, my, Game.WIDTH / 2 - 50, 300, 100, 50))
+                    {
+                        keyInput.editing = 2;
+                    }
+                    else if (mouseOver(mx, my, Game.WIDTH / 2 - 50 - 100 - 10, 300, 100, 50))
+                    {
+                        keyInput.editing = 3;
+                    }
+                    else if (mouseOver(mx, my, Game.WIDTH / 2 - 50 + 100 + 10, 300, 100, 50))
+                    {
+                        keyInput.editing = 4;
+                    }
+                    else if (mouseOver(mx, my, Game.WIDTH / 2 - 50 - 100 - 10 - 100 - 10, 240, 100, 50))
+                    {
+                        keyInput.editing = 5;
+                    }
+                    else if (mouseOver(mx, my, Game.WIDTH / 2 - 100, 420, 200, 50))
+                    {
+                        settings.page = 0;
+                    }
+                    break;
+                case 2 :
+                    if (mouseOver(mx, my, 0, 310, Game.WIDTH, 30))
+                    {
+                        settings.playerImage = 1;
+                        settings.page = 0;
+                    }
+                    else if (mouseOver(mx, my, 0, 340, Game.WIDTH, 30))
+                    {
+                        settings.playerImage = 2;
+                        settings.page = 0;
+                    }
+                    else if (mouseOver(mx, my, 0, 370, Game.WIDTH, 30))
+                    {
+                        settings.playerImage = 3;
+                        settings.page = 0;
+                    }
+                    else if (mouseOver(mx, my, 0, 400, Game.WIDTH, 30))
+                    {
+                        settings.playerImage = 4;
+                        settings.page = 0;
+                    }
+                    else if (mouseOver(mx, my, 0, 430, Game.WIDTH, 30))
+                    {
+                        settings.playerImage = 5;
+                        settings.page = 0;
+                    }
+                    else if (mouseOver(mx, my, 0, 460, Game.WIDTH, 30))
+                    {
+                        settings.playerImage = 6;
+                        settings.page = 0;
+                    }
+                    else if (mouseOver(mx, my, 0, 490, Game.WIDTH, 30))
+                    {
+                        settings.playerImage = 7;
+                        settings.page = 0;
+                    }
+                    else if (mouseOver(mx, my, 0, 520, Game.WIDTH, 30))
+                    {
+                        settings.playerImage = 8;
+                        settings.page = 0;
+                    }
             }
         }
         else if (game.gameState == STATE.Paused)
@@ -233,6 +240,61 @@ public class MouseInput extends MouseAdapter
                 paused.mouseOver = 5;
             }
             else paused.mouseOver = 0;
+        }
+        else if (game.gameState == STATE.Settings)
+        {
+            if (settings.page == 0)
+            {
+                if (mouseOver(mx, my, 0, 460, Game.WIDTH, 30))
+                {
+                    settings.mouseOver = 1;
+                }
+                else if (mouseOver(mx, my, 0, 490, Game.WIDTH, 30))
+                {
+                    settings.mouseOver = 2;
+                }
+                else if (mouseOver(mx, my, 0, 520, Game.WIDTH, 30))
+                {
+                    settings.mouseOver = 3;
+                }
+                else settings.mouseOver = 0;
+            }
+            else if (settings.page == 2)
+            {
+                if (mouseOver(mx, my, 0, 310, Game.WIDTH, 30))
+                {
+                    settings.mouseOver = 1;
+                }
+                else if (mouseOver(mx, my, 0, 340, Game.WIDTH, 30))
+                {
+                    settings.mouseOver = 2;
+                }
+                else if (mouseOver(mx, my, 0, 370, Game.WIDTH, 30))
+                {
+                    settings.mouseOver = 3;
+                }
+                else if (mouseOver(mx, my, 0, 400, Game.WIDTH, 30))
+                {
+                    settings.mouseOver = 4;
+                }
+                else if (mouseOver(mx, my, 0, 430, Game.WIDTH, 30))
+                {
+                    settings.mouseOver = 5;
+                }
+                else if (mouseOver(mx, my, 0, 460, Game.WIDTH, 30))
+                {
+                    settings.mouseOver = 6;
+                }
+                else if (mouseOver(mx, my, 0, 490, Game.WIDTH, 30))
+                {
+                    settings.mouseOver = 7;
+                }
+                else if (mouseOver(mx, my, 0, 520, Game.WIDTH, 30))
+                {
+                    settings.mouseOver = 8;
+                }
+                else settings.mouseOver = 0;
+            }
         }
     }
 
