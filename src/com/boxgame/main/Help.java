@@ -8,6 +8,15 @@ import java.awt.*;
 
 public class Help
 {
+    public int mouseOver;
+
+    private Game game;
+
+    public Help(Game game)
+    {
+        this.game = game;
+    }
+
     public void tick()
     {
 
@@ -15,25 +24,12 @@ public class Help
 
     public void render(Graphics g)
     {
-        Font title = new Font("arial", Font.BOLD, 70);
-        Font text = new Font("arial", Font.BOLD, 30);
-        Font button = new Font("arial", Font.BOLD, 25);
+        g.setColor(new Color(0f, 0f, 0f, .25f));
 
-        g.setColor(Color.BLACK);
-        g.setFont(title);
-        g.drawString("Help", 320, 100);
+        if (mouseOver == 1)
+            g.fillRect(0, 520, Game.WIDTH, 30);
 
-        g.setFont(text);
-        g.drawString("Try to find the exit.", 265, 140);
-        g.drawString("You can not go through walls.", 185, 180);
-        g.drawString("Blue blocks teleport you", 222, 220);
-        g.drawString("to another place on the level.", 190, 260);
-        g.drawString("The green block is the goal.", 200, 300);
-        g.drawString("You can find guards around the level.", 135, 340);
-        g.drawString("If you touch a guard, the level resets.", 140, 380);
-
-        g.setFont(button);
-        g.drawRoundRect(Game.WIDTH / 2 - 100, 420, 200, 50, 50, 50);
-        g.drawString("BACK", Game.WIDTH / 2 - 100 + 65, 455);
+        g.drawImage(game.help_menu, 0, -45, null);
+        g.drawImage(game.finish, 509, 130, 16, 16, null);
     }
 }

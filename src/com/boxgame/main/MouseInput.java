@@ -11,8 +11,9 @@ public class MouseInput extends MouseAdapter
     private Settings settings;
     private Menu menu;
     private Paused paused;
+    private Help help;
 
-    public MouseInput(Game game, Handler handler, KeyInput keyInput, Settings settings, Menu menu, Paused paused)
+    public MouseInput(Game game, Handler handler, KeyInput keyInput, Settings settings, Menu menu, Paused paused, Help help)
     {
         this.game = game;
         this.handler = handler;
@@ -20,6 +21,7 @@ public class MouseInput extends MouseAdapter
         this.settings = settings;
         this.menu = menu;
         this.paused = paused;
+        this.help = help;
     }
 
     @Override
@@ -177,7 +179,7 @@ public class MouseInput extends MouseAdapter
         }
         else if (game.gameState == STATE.Help)
         {
-            if (mouseOver(mx, my, Game.WIDTH / 2 - 100, 420, 200, 50))
+            if (mouseOver(mx, my, 0, 520, Game.WIDTH, 30))
             {
                 if (!game.inGame) game.gameState = STATE.Menu;
                 else game.gameState = STATE.Paused;
@@ -295,6 +297,14 @@ public class MouseInput extends MouseAdapter
                 }
                 else settings.mouseOver = 0;
             }
+        }
+        else if (game.gameState == STATE.Help)
+        {
+            if (mouseOver(mx, my, 0, 520, Game.WIDTH, 30))
+            {
+                help.mouseOver = 1;
+            }
+            else help.mouseOver = 0;
         }
     }
 

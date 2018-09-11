@@ -45,6 +45,7 @@ public class Game extends Canvas implements Runnable
     BufferedImage pause_menu;
     BufferedImage settings_menu;
     BufferedImage settings_change_skin_menu;
+    BufferedImage help_menu;
 
     BufferedImage block;
     BufferedImage floor;
@@ -76,6 +77,7 @@ public class Game extends Canvas implements Runnable
         pause_menu = loader.loadImage("/menus/pause_menu.png");
         settings_menu = loader.loadImage("/menus/settings_menu.png");
         settings_change_skin_menu = loader.loadImage("/menus/settings_change_skin_menu.png");
+        help_menu = loader.loadImage("/menus/help_menu.png");
 
         block = loader.loadImage("/textures/block.png");
         floor = loader.loadImage("/textures/floor.png");
@@ -94,8 +96,8 @@ public class Game extends Canvas implements Runnable
         keyInput = new KeyInput(handler, this);
         settings = new Settings(keyInput, this);
         paused = new Paused(this);
-        help = new Help();
-        mouseInput = new MouseInput(this, handler, keyInput, settings, menu, paused);
+        help = new Help(this);
+        mouseInput = new MouseInput(this, handler, keyInput, settings, menu, paused, help);
 
         this.addKeyListener(keyInput);
         this.addMouseListener(mouseInput);
