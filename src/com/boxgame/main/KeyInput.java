@@ -9,6 +9,8 @@ public class KeyInput extends KeyAdapter
 
     public char upKey, downKey, leftKey, rightKey, pauseKey;
 
+    public int up, down, left, right, pause;
+
     private Handler handler;
     private Game game;
 
@@ -21,7 +23,13 @@ public class KeyInput extends KeyAdapter
         downKey = 's';
         leftKey = 'a';
         rightKey = 'd';
-        pauseKey = 'p';
+        pauseKey = '\u001B';
+
+        up = 87;
+        down = 83;
+        left = 65;
+        right = 68;
+        pause = 27;
 
         editing = 0;
 
@@ -37,7 +45,8 @@ public class KeyInput extends KeyAdapter
     @Override
     public void keyPressed(KeyEvent e)
     {
-        char key = e.getKeyChar();
+        int key = e.getKeyCode();
+        char keyChar = e.getKeyChar();
 
         switch (editing)
         {
@@ -50,36 +59,41 @@ public class KeyInput extends KeyAdapter
 
                         if (tempObject.getId() == ID.Player)
                         {
-                            if (key == upKey) handler.setUp(true);
-                            if (key == downKey) handler.setDown(true);
-                            if (key == leftKey) handler.setLeft(true);
-                            if (key == rightKey) handler.setRight(true);
+                            if (key == up) handler.setUp(true);
+                            if (key == down) handler.setDown(true);
+                            if (key == left) handler.setLeft(true);
+                            if (key == right) handler.setRight(true);
                         }
                     }
-                    if (key == pauseKey)
+                    if (key == pause)
                     {
                         game.gameState = STATE.Paused;
                     }
                 }
                 break;
             case 1 :
-                upKey = key;
+                up = key;
+                upKey = keyChar;
                 editing = 0;
                 break;
             case 2 :
-                downKey = key;
+                down = key;
+                downKey = keyChar;
                 editing = 0;
                 break;
             case 3 :
-                leftKey = key;
+                left = key;
+                leftKey = keyChar;
                 editing = 0;
                 break;
             case 4 :
-                rightKey = key;
+                right = key;
+                rightKey = keyChar;
                 editing = 0;
                 break;
             case 5 :
-                pauseKey = key;
+                pause= key;
+                pauseKey = keyChar;
                 editing = 0;
                 break;
         }
@@ -88,7 +102,7 @@ public class KeyInput extends KeyAdapter
     @Override
     public void keyReleased(KeyEvent e)
     {
-        char key = e.getKeyChar();
+        int key = e.getKeyCode();
 
         for (int i = 0; i < handler.object.size(); i++)
         {
@@ -96,10 +110,10 @@ public class KeyInput extends KeyAdapter
 
             if (tempObject.getId() == ID.Player)
             {
-                if (key == upKey) handler.setUp(false);
-                if (key == downKey) handler.setDown(false);
-                if (key == leftKey) handler.setLeft(false);
-                if (key == rightKey) handler.setRight(false);
+                if (key == up) handler.setUp(false);
+                if (key == down) handler.setDown(false);
+                if (key == left) handler.setLeft(false);
+                if (key == right) handler.setRight(false);
             }
         }
     }
