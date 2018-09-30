@@ -6,11 +6,11 @@ package com.boxgame.main;
 
 import java.awt.*;
 
-public class Guard extends GameObject
+public class Backer extends GameObject
 {
     private Game game;
 
-    public Guard(int x, int y, ID id, Game game)
+    public Backer(int x, int y, ID id, Game game)
     {
         super(x, y, id);
         this.game = game;
@@ -23,7 +23,7 @@ public class Guard extends GameObject
 
     public void render(Graphics g)
     {
-        g.drawImage(game.guard, x + 2, y + 2, 60, 60, null);
+        g.drawImage(game.backer, x, y, 64, 64, null);
     }
 
     @Override

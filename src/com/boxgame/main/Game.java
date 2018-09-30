@@ -51,7 +51,7 @@ public class Game extends Canvas implements Runnable
     BufferedImage floor;
     BufferedImage finish;
     BufferedImage teleporter;
-    BufferedImage guard;
+    BufferedImage backer;
 
     BufferedImage logo;
     BufferedImage sprite_sheet;
@@ -83,7 +83,7 @@ public class Game extends Canvas implements Runnable
         floor = loader.loadImage("/textures/floor.png");
         finish = loader.loadImage("/textures/finish.png");
         teleporter = loader.loadImage("/textures/teleporter.png");
-        guard = loader.loadImage("/textures/guard.png");
+        backer = loader.loadImage("/textures/backer.png");
 
         logo = loader.loadImage("/logo.png");
         sprite_sheet = loader.loadImage("/sprite_sheet.png");
@@ -282,7 +282,7 @@ public class Game extends Canvas implements Runnable
                         handler.addObject(new Teleporter(xx * 64, yy * 64, ID.Teleporter, this));
 
                     if (red == 255 && green == 0 && blue == 255)
-                        handler.addObject(new Guard(xx * 64, yy * 64, ID.Guard, this));
+                        handler.addObject(new Backer(xx * 64, yy * 64, ID.Backer, this));
                 }
             }
         }

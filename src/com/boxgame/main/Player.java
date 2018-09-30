@@ -65,7 +65,7 @@ public class Player extends GameObject
                             case 10 : x = 2450; y = 2440; break;
                         }
                         break;
-                    case Guard :
+                    case Backer :
                         game.loadLevel();
                         break;
                 }
