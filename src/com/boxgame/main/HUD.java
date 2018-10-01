@@ -19,11 +19,11 @@ public class HUD
     {
         g.setColor(Color.BLACK);
         g.setFont(new Font("arial", Font.PLAIN, 30));
-        g.drawString("Level " + game.level, 10, Game.HEIGHT - 40);
+        g.drawString("Level " + game.level, 10, Game.HEIGHT - 50);
         if (game.level == 10)
         {
             g.setFont(new Font("arial", Font.PLAIN, 20));
-            g.drawString("LAST LEVEL", 10, Game.HEIGHT - 40 - 30);
+            g.drawString("LAST LEVEL", 10, Game.HEIGHT - 50 - 30);
         }
     }
 }
