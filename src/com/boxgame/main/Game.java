@@ -10,7 +10,7 @@ import java.awt.image.BufferedImage;
 
 public class Game extends Canvas implements Runnable
 {
-    private static final long serialVersionUID = 1550691097823471818L;
+    private static final long serialVersionUID = 1L;
 
     public static final int WIDTH = 800, HEIGHT = WIDTH / 12 * 9;
     public int level;
