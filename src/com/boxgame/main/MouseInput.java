@@ -36,9 +36,9 @@ public class MouseInput extends MouseAdapter
         {
             if (mouseOver(mx, my, 0, 430, Game.WIDTH, 30))
             {
-                game.gameState = STATE.Game;
                 game.level = 1;
                 game.loadLevel();
+                game.gameState = STATE.Game;
                 game.inGame = true;
             }
             else if (mouseOver(mx, my, 0, 460, Game.WIDTH, 30))
