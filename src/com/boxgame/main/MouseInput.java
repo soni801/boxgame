@@ -173,6 +173,7 @@ public class MouseInput extends MouseAdapter
 
                     handler.removeObject(tempObject);
                 }
+                game.inGame = false;
             }
             else if (mouseOver(mx, my, 0, 520, Game.WIDTH, 30))
             {
