@@ -87,7 +87,11 @@ public class MouseInput extends MouseAdapter
                     }
                     break;
                 case 1 :
-                    if (mouseOver(mx, my, 0, 520, Game.WIDTH, 30))
+                    if (mouseOver(mx, my, 0, 490, Game.WIDTH, 30))
+                    {
+                        settings.smoothCamera = !settings.smoothCamera;
+                    }
+                    else if (mouseOver(mx, my, 0, 520, Game.WIDTH, 30))
                     {
                         settings.page = 0;
                     }
@@ -281,9 +285,13 @@ public class MouseInput extends MouseAdapter
             }
             else if (settings.page == 1)
             {
-                if (mouseOver(mx, my, 0, 520, Game.WIDTH , 30))
+                if (mouseOver(mx, my, 0, 490, Game.WIDTH, 30))
                 {
                     settings.mouseOver = 1;
+                }
+                else if (mouseOver(mx, my, 0, 520, Game.WIDTH , 30))
+                {
+                    settings.mouseOver = 2;
                 }
                 else settings.mouseOver = 0;
             }

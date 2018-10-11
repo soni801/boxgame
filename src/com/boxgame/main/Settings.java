@@ -8,14 +8,19 @@ public class Settings
     private Game game;
 
     public int playerImage;
+    public boolean smoothCamera;
+
     public int mouseOver;
     public int page;
+
     public Settings(KeyInput keyInput, Game game)
     {
         this.keyInput = keyInput;
         this.game = game;
 
         playerImage = 1;
+        smoothCamera = true;
+
         mouseOver = 0;
         page = 0;
     }
@@ -46,7 +51,13 @@ public class Settings
                 break;
             case 1 :
                 g.setColor(new Color(0f, 0f, 0f, .25f));
-                if (mouseOver == 1) g.fillRect(0, 520, Game.WIDTH, 30);
+                switch (mouseOver)
+                {
+                    case 1 : g.fillRect(0, 490, Game.WIDTH, 30); break;
+                    case 2 : g.fillRect(0, 520, Game.WIDTH, 30); break;
+                }
+                if (smoothCamera) g.drawImage(game.on, 185, 474, null);
+                else g.drawImage(game.off, 185, 474, null);
                 g.drawImage(game.settings_camera_settings_menu, 0, -45, null);
                 break;
             case 2 :

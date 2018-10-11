@@ -57,6 +57,8 @@ public class Game extends Canvas implements Runnable
 
     BufferedImage logo;
     BufferedImage sprite_sheet;
+    BufferedImage on;
+    BufferedImage off;
 
     public STATE gameState = STATE.Menu;
 
@@ -91,14 +93,16 @@ public class Game extends Canvas implements Runnable
 
         logo = loader.loadImage("/logo.png");
         sprite_sheet = loader.loadImage("/sprite_sheet.png");
+        on = loader.loadImage("/on.png");
+        off = loader.loadImage("/off.png");
 
         handler = new Handler();
         menu = new Menu(this);
-        camera = new Camera(0, 0, this);
-        end = new End(this);
-        hud = new HUD(this);
         keyInput = new KeyInput(handler, this);
         settings = new Settings(keyInput, this);
+        camera = new Camera(0, 0, this, settings);
+        end = new End(this);
+        hud = new HUD(this);
         paused = new Paused(this);
         help = new Help(this);
         mouseInput = new MouseInput(this, handler, keyInput, settings, menu, paused, help, end);

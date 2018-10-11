@@ -5,18 +5,28 @@ public class Camera
     private float x, y;
 
     private Game game;
+    private Settings settings;
 
-    public Camera(float x, float y, Game game)
+    public Camera(float x, float y, Game game, Settings settings)
     {
         this.x = x;
         this.y = y;
         this.game = game;
+        this.settings = settings;
     }
 
     public void tick(GameObject object)
     {
-        x += ((object.getX() - x)-Game.WIDTH / 2) * 0.05f;
-        y += ((object.getY() - y)-Game.HEIGHT / 2) * 0.05f;
+        if (settings.smoothCamera)
+        {
+            x += ((object.getX() - x)-Game.WIDTH / 2) * 0.05f;
+            y += ((object.getY() - y)-Game.HEIGHT / 2) * 0.05f;
+        }
+        else
+        {
+            x += ((object.getX() - x)-Game.WIDTH / 2);
+            y += ((object.getY() - y)-Game.HEIGHT / 2);
+        }
 
         if (x <= 0) x = 0;
         if (y <= 0) y = 0;
