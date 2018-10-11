@@ -45,6 +45,7 @@ public class Game extends Canvas implements Runnable
     BufferedImage pause_menu;
     BufferedImage settings_menu;
     BufferedImage settings_change_skin_menu;
+    BufferedImage settings_camera_settings_menu;
     BufferedImage help_menu;
     BufferedImage end_menu;
 
@@ -78,6 +79,7 @@ public class Game extends Canvas implements Runnable
         pause_menu = loader.loadImage("/menus/pause_menu.png");
         settings_menu = loader.loadImage("/menus/settings_menu.png");
         settings_change_skin_menu = loader.loadImage("/menus/settings_change_skin_menu.png");
+        settings_camera_settings_menu = loader.loadImage("/menus/settings_camera_settings_menu.png");
         help_menu = loader.loadImage("/menus/help_menu.png");
         end_menu = loader.loadImage("/menus/end_menu.png");
 

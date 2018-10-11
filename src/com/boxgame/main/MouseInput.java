@@ -66,13 +66,18 @@ public class MouseInput extends MouseAdapter
             switch (settings.page)
             {
                 case 0 :
-                    if (mouseOver(mx, my, 0, 460, Game.WIDTH, 30))
+                    if (mouseOver(mx, my, 0, 430, Game.WIDTH, 30))
                     {
                         settings.page = 1;
+                        settings.mouseOver = 0;
+                    }
+                    else if (mouseOver(mx, my, 0, 460, Game.WIDTH, 30))
+                    {
+                        settings.page = 2;
                     }
                     else if (mouseOver(mx, my, 0, 490, Game.WIDTH, 30))
                     {
-                        settings.page = 2;
+                        settings.page = 3;
                         settings.mouseOver = 0;
                     }
                     else if (mouseOver(mx, my, 0, 520, Game.WIDTH, 30))
@@ -82,6 +87,12 @@ public class MouseInput extends MouseAdapter
                     }
                     break;
                 case 1 :
+                    if (mouseOver(mx, my, 0, 520, Game.WIDTH, 30))
+                    {
+                        settings.page = 0;
+                    }
+                    break;
+                case 2 :
                     if (mouseOver(mx, my, Game.WIDTH / 2 - 50, 240, 100, 50))
                     {
                         keyInput.editing = 1;
@@ -107,7 +118,7 @@ public class MouseInput extends MouseAdapter
                         settings.page = 0;
                     }
                     break;
-                case 2 :
+                case 3 :
                     if (mouseOver(mx, my, 0, 310, Game.WIDTH, 30))
                     {
                         settings.playerImage = 1;
@@ -250,21 +261,33 @@ public class MouseInput extends MouseAdapter
         {
             if (settings.page == 0)
             {
-                if (mouseOver(mx, my, 0, 460, Game.WIDTH, 30))
+                if (mouseOver(mx, my, 0, 430, Game.WIDTH, 30))
                 {
                     settings.mouseOver = 1;
                 }
-                else if (mouseOver(mx, my, 0, 490, Game.WIDTH, 30))
+                else if (mouseOver(mx, my, 0, 460, Game.WIDTH, 30))
                 {
                     settings.mouseOver = 2;
                 }
-                else if (mouseOver(mx, my, 0, 520, Game.WIDTH, 30))
+                else if (mouseOver(mx, my, 0, 490, Game.WIDTH, 30))
                 {
                     settings.mouseOver = 3;
                 }
+                else if (mouseOver(mx, my, 0, 520, Game.WIDTH, 30))
+                {
+                    settings.mouseOver = 4;
+                }
                 else settings.mouseOver = 0;
             }
-            else if (settings.page == 2)
+            else if (settings.page == 1)
+            {
+                if (mouseOver(mx, my, 0, 520, Game.WIDTH , 30))
+                {
+                    settings.mouseOver = 1;
+                }
+                else settings.mouseOver = 0;
+            }
+            else if (settings.page == 3)
             {
                 if (mouseOver(mx, my, 0, 310, Game.WIDTH, 30))
                 {

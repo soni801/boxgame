@@ -37,13 +37,19 @@ public class Settings
                 g.setColor(new Color(0f, 0f, 0f, .25f));
                 switch (mouseOver)
                 {
-                    case 1 : g.fillRect(0, 460, Game.WIDTH, 30); break;
-                    case 2 : g.fillRect(0, 490, Game.WIDTH, 30); break;
-                    case 3 : g.fillRect(0, 520, Game.WIDTH, 30); break;
+                    case 1 : g.fillRect(0, 430, Game.WIDTH, 30); break;
+                    case 2 : g.fillRect(0, 460, Game.WIDTH, 30); break;
+                    case 3 : g.fillRect(0, 490, Game.WIDTH, 30); break;
+                    case 4 : g.fillRect(0, 520, Game.WIDTH, 30); break;
                 }
                 g.drawImage(game.settings_menu, 0, -45, null);
                 break;
             case 1 :
+                g.setColor(new Color(0f, 0f, 0f, .25f));
+                if (mouseOver == 1) g.fillRect(0, 520, Game.WIDTH, 30);
+                g.drawImage(game.settings_camera_settings_menu, 0, -45, null);
+                break;
+            case 2 :
                 g.setFont(title);
                 g.drawString("Controls", 255, 140);
                 if (keyInput.editing == 1) g.setColor(Color.ORANGE); else g.setColor(Color.BLACK); g.drawRoundRect(Game.WIDTH / 2 - 50, 240, 100, 50, 50, 50);
@@ -64,7 +70,7 @@ public class Settings
                 g.drawRoundRect(Game.WIDTH / 2 - 100, 420, 200, 50, 50, 50);
                 g.drawString("BACK", Game.WIDTH / 2 - 100 + 65, 455);
                 break;
-            case 2 :
+            case 3 :
                 g.setColor(new Color(0f, 0f, 0f, .25f));
                 switch (mouseOver)
                 {

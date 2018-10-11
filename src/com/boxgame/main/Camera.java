@@ -15,8 +15,8 @@ public class Camera
 
     public void tick(GameObject object)
     {
-        x += ((object.getX()-x)-Game.WIDTH/2)*0.05f;
-        y += ((object.getY()-y)-Game.HEIGHT/2)*0.05f;
+        x += ((object.getX() - x)-Game.WIDTH / 2) * 0.05f;
+        y += ((object.getY() - y)-Game.HEIGHT / 2) * 0.05f;
 
         if (x <= 0) x = 0;
         if (y <= 0) y = 0;
