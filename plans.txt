@@ -3,3 +3,4 @@ add block disappearing when button pressed
 add timer
 add i18n
 add more skins!
+add custom mouse cursor
