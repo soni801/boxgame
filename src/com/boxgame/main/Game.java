@@ -13,6 +13,7 @@ public class Game extends Canvas implements Runnable
     private static final long serialVersionUID = 1L;
 
     public static final int WIDTH = 800, HEIGHT = WIDTH / 12 * 9;
+    public static final String VERSION = "Release 1.1";
     public int level;
     public boolean inGame;
 
@@ -207,8 +208,8 @@ public class Game extends Canvas implements Runnable
         Graphics g = bs.getDrawGraphics();
         Graphics2D g2d = (Graphics2D) g;
 
-        g.setColor(Color.BLACK);
-        g.fillRect(0, 0, WIDTH, HEIGHT);
+        Font font = new Font("arial", Font.PLAIN, 15);
+        FontMetrics metrics = g.getFontMetrics(font);
 
         g2d.translate(-camera.getX(), -camera.getY());
 
@@ -233,6 +234,10 @@ public class Game extends Canvas implements Runnable
             case Paused   : paused.render(g);   break;
             case Help     : help.render(g);     break;
         }
+
+        g.setFont(font);
+        g.setColor(Color.BLACK);
+        g.drawString(VERSION, Game.WIDTH - 20 - metrics.stringWidth(VERSION), Game.HEIGHT - 45);
 
         g.dispose();
         bs.show();
