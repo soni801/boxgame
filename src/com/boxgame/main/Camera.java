@@ -57,9 +57,25 @@ public class Camera
                 if (x >= 1712) x = 1712;
                 if (y >= 1941) y = 1941;
                 break;
-            default :
+            case 7 :
                 if (x >= 1840) x = 1840;
                 if (y >= 2069) y = 2069;
+                break;
+            case 8 :
+                if (x >= 1840) x = 1840;
+                if (y >= 2069) y = 2069;
+                break;
+            case 9 :
+                if (x >= 1840) x = 1840;
+                if (y >= 2069) y = 2069;
+                break;
+            case 10 :
+                if (x >= 1840) x = 1840;
+                if (y >= 2069) y = 2069;
+                break;
+            case 11 :
+                if (x >= 1968) x = 1968;
+                if (y >= 2197) y = 2197;
         }
     }
 

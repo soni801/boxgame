@@ -63,6 +63,7 @@ public class Player extends GameObject
                         {
                             case 9  : x = 140;  y = 1300; break;
                             case 10 : x = 2450; y = 2440; break;
+                            case 11 : x = 2580; y = 1040; break;
                         }
                         break;
                     case Backer :

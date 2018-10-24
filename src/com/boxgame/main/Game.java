@@ -40,6 +40,7 @@ public class Game extends Canvas implements Runnable
     private BufferedImage level8;
     private BufferedImage level9;
     private BufferedImage level10;
+    private BufferedImage level11;
 
     BufferedImage main_menu;
     BufferedImage pause_menu;
@@ -76,6 +77,7 @@ public class Game extends Canvas implements Runnable
         level8 = loader.loadImage("/levels/level8.png");
         level9 = loader.loadImage("/levels/level9.png");
         level10 = loader.loadImage("/levels/level10.png");
+        level11 = loader.loadImage("/levels/level11.png");
 
         main_menu = loader.loadImage("/menus/main_menu.png");
         pause_menu = loader.loadImage("/menus/pause_menu.png");
@@ -260,6 +262,7 @@ public class Game extends Canvas implements Runnable
             case 8  : image = level8;  break;
             case 9  : image = level9;  break;
             case 10 : image = level10; break;
+            case 11 : image = level11; break;
             default : image = null; load = false;
         }
 
