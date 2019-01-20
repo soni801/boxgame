@@ -29,6 +29,7 @@ public class Game extends Canvas implements Runnable
     private KeyInput keyInput;
     private Paused paused;
     private Help help;
+    private Credits credits;
     private MouseInput mouseInput;
 
     private BufferedImage level1;
@@ -50,6 +51,7 @@ public class Game extends Canvas implements Runnable
     BufferedImage settings_camera_settings_menu;
     BufferedImage help_menu;
     BufferedImage end_menu;
+    BufferedImage credits_menu;
 
     BufferedImage block;
     BufferedImage floor;
@@ -87,6 +89,7 @@ public class Game extends Canvas implements Runnable
         settings_camera_settings_menu = loader.loadImage("/menus/settings_camera_settings_menu.png");
         help_menu = loader.loadImage("/menus/help_menu.png");
         end_menu = loader.loadImage("/menus/end_menu.png");
+        credits_menu = loader.loadImage("/menus/credits_menu.png");
 
         block = loader.loadImage("/textures/block.png");
         floor = loader.loadImage("/textures/floor.png");
@@ -108,7 +111,8 @@ public class Game extends Canvas implements Runnable
         hud = new HUD(this);
         paused = new Paused(this);
         help = new Help(this);
-        mouseInput = new MouseInput(this, handler, keyInput, settings, menu, paused, help, end);
+        credits = new Credits(this);
+        mouseInput = new MouseInput(this, handler, keyInput, settings, menu, paused, help, end, credits);
 
         this.addKeyListener(keyInput);
         this.addMouseListener(mouseInput);
@@ -193,6 +197,7 @@ public class Game extends Canvas implements Runnable
             case Settings : settings.tick(); break;
             case Paused   : paused.tick();   break;
             case Help     : help.tick();     break;
+            case Credits  : credits.tick();  break;
         }
     }
 
@@ -233,6 +238,7 @@ public class Game extends Canvas implements Runnable
             case Settings : settings.render(g); break;
             case Paused   : paused.render(g);   break;
             case Help     : help.render(g);     break;
+            case Credits  : credits.render(g);  break;
         }
 
         g.setFont(font);

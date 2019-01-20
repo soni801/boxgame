@@ -6,13 +6,13 @@ package com.boxgame.main;
 
 import java.awt.*;
 
-public class Help
+public class Credits
 {
     public int mouseOver;
 
     private Game game;
 
-    public Help(Game game)
+    public Credits(Game game)
     {
         this.game = game;
     }
@@ -29,6 +29,6 @@ public class Help
         if (mouseOver == 1)
             g.fillRect(0, 520, Game.WIDTH, 30);
 
-        g.drawImage(game.help_menu, 0, -45, null);
+        g.drawImage(game.credits_menu, 0, -45, null);
     }
 }

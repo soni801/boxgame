@@ -7,6 +7,7 @@ package com.boxgame.main;
 public enum STATE
 {
     Menu,
+    Credits,
     Help,
     Settings,
     Game,

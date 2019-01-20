@@ -13,8 +13,9 @@ public class MouseInput extends MouseAdapter
     private Paused paused;
     private Help help;
     private End end;
+    private Credits credits;
 
-    public MouseInput(Game game, Handler handler, KeyInput keyInput, Settings settings, Menu menu, Paused paused, Help help, End end)
+    public MouseInput(Game game, Handler handler, KeyInput keyInput, Settings settings, Menu menu, Paused paused, Help help, End end, Credits credits)
     {
         this.game = game;
         this.handler = handler;
@@ -24,6 +25,7 @@ public class MouseInput extends MouseAdapter
         this.paused = paused;
         this.help = help;
         this.end = end;
+        this.credits = credits;
     }
 
     @Override
@@ -34,12 +36,16 @@ public class MouseInput extends MouseAdapter
 
         if (game.gameState == STATE.Menu)
         {
-            if (mouseOver(mx, my, 0, 430, Game.WIDTH, 30))
+            if (mouseOver(mx, my, 0, 400, Game.WIDTH, 30))
             {
                 game.level = 1;
                 game.loadLevel();
                 game.gameState = STATE.Game;
                 game.inGame = true;
+            }
+            if (mouseOver(mx, my, 0, 430, Game.WIDTH, 30))
+            {
+                game.gameState = STATE.Credits;
             }
             else if (mouseOver(mx, my, 0, 460, Game.WIDTH, 30))
             {
@@ -203,6 +209,14 @@ public class MouseInput extends MouseAdapter
                 else game.gameState = STATE.Paused;
             }
         }
+        else if (game.gameState == STATE.Credits)
+        {
+            if (mouseOver(mx, my, 0, 520, Game.WIDTH, 30))
+            {
+                if (!game.inGame) game.gameState = STATE.Menu;
+                else game.gameState = STATE.Paused;
+            }
+        }
     }
 
     @Override
@@ -219,21 +233,25 @@ public class MouseInput extends MouseAdapter
 
         if (game.gameState == STATE.Menu)
         {
-            if (mouseOver(mx, my, 0, 430, Game.WIDTH, 30))
+            if (mouseOver(mx, my, 0, 400, Game.WIDTH, 30))
             {
                 menu.mouseOver = 1;
             }
-            else if (mouseOver(mx, my, 0, 460, Game.WIDTH, 30))
+            else if (mouseOver(mx, my, 0, 430, Game.WIDTH, 30))
             {
                 menu.mouseOver = 2;
             }
-            else if (mouseOver(mx, my, 0, 490, Game.WIDTH, 30))
+            else if (mouseOver(mx, my, 0, 460, Game.WIDTH, 30))
             {
                 menu.mouseOver = 3;
             }
-            else if (mouseOver(mx, my, 0, 520, Game.WIDTH, 30))
+            else if (mouseOver(mx, my, 0, 490, Game.WIDTH, 30))
             {
                 menu.mouseOver = 4;
+            }
+            else if (mouseOver(mx, my, 0, 520, Game.WIDTH, 30))
+            {
+                menu.mouseOver = 5;
             }
             else menu.mouseOver = 0;
         }
@@ -347,6 +365,14 @@ public class MouseInput extends MouseAdapter
                 end.mouseOver = 1;
             }
             else end.mouseOver = 0;
+        }
+        else if (game.gameState == STATE.Credits)
+        {
+            if (mouseOver(mx, my, 0, 520, Game.WIDTH, 30))
+            {
+                credits.mouseOver = 1;
+            }
+            else credits.mouseOver = 0;
         }
     }
 
