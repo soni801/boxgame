@@ -30,6 +30,7 @@ public class Game extends Canvas implements Runnable
     private Paused paused;
     private Help help;
     private Credits credits;
+    private Achievements achievements;
     private MouseInput mouseInput;
 
     private BufferedImage level1;
@@ -52,6 +53,7 @@ public class Game extends Canvas implements Runnable
     BufferedImage help_menu;
     BufferedImage end_menu;
     BufferedImage credits_menu;
+    BufferedImage achievements_menu;
 
     BufferedImage block;
     BufferedImage floor;
@@ -90,6 +92,7 @@ public class Game extends Canvas implements Runnable
         help_menu = loader.loadImage("/menus/help_menu.png");
         end_menu = loader.loadImage("/menus/end_menu.png");
         credits_menu = loader.loadImage("/menus/credits_menu.png");
+        achievements_menu = loader.loadImage("/menus/achievements_menu.png");
 
         block = loader.loadImage("/textures/block.png");
         floor = loader.loadImage("/textures/floor.png");
@@ -112,7 +115,8 @@ public class Game extends Canvas implements Runnable
         paused = new Paused(this);
         help = new Help(this);
         credits = new Credits(this);
-        mouseInput = new MouseInput(this, handler, keyInput, settings, menu, paused, help, end, credits);
+        achievements = new Achievements(this);
+        mouseInput = new MouseInput(this, handler, keyInput, settings, menu, paused, help, end, credits, achievements);
 
         this.addKeyListener(keyInput);
         this.addMouseListener(mouseInput);
@@ -191,13 +195,14 @@ public class Game extends Canvas implements Runnable
 
         switch (gameState)
         {
-            case Menu     : menu.tick();     break;
-            case Game     : hud.tick();      break;
-            case End      : end.tick();      break;
-            case Settings : settings.tick(); break;
-            case Paused   : paused.tick();   break;
-            case Help     : help.tick();     break;
-            case Credits  : credits.tick();  break;
+            case Menu         : menu.tick();         break;
+            case Game         : hud.tick();          break;
+            case End          : end.tick();          break;
+            case Settings     : settings.tick();     break;
+            case Paused       : paused.tick();       break;
+            case Help         : help.tick();         break;
+            case Credits      : credits.tick();      break;
+            case Achievements : achievements.tick(); break;
         }
     }
 
@@ -232,13 +237,14 @@ public class Game extends Canvas implements Runnable
 
         switch (gameState)
         {
-            case Menu     : menu.render(g);     break;
-            case Game     : hud.render(g);      break;
-            case End      : end.render(g);      break;
-            case Settings : settings.render(g); break;
-            case Paused   : paused.render(g);   break;
-            case Help     : help.render(g);     break;
-            case Credits  : credits.render(g);  break;
+            case Menu         : menu.render(g);         break;
+            case Game         : hud.render(g);          break;
+            case End          : end.render(g);          break;
+            case Settings     : settings.render(g);     break;
+            case Paused       : paused.render(g);       break;
+            case Help         : help.render(g);         break;
+            case Credits      : credits.render(g);      break;
+            case Achievements : achievements.render(g); break;
         }
 
         g.setFont(font);

@@ -9,6 +9,7 @@ public enum STATE
     Menu,
     Credits,
     Help,
+    Achievements,
     Settings,
     Game,
     Paused,

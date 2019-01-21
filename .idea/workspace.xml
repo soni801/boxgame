@@ -7,8 +7,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="13dcafc9-6ae7-44cb-b95d-2b79397385ff" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/res/menus/credits_menu.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/menus/credits_menu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/boxgame/main/Achievements.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/boxgame/com/boxgame/main/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/boxgame/com/boxgame/main/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/boxgame/com/boxgame/main/MouseInput.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/boxgame/com/boxgame/main/MouseInput.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/boxgame/menus/main_menu.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/boxgame/menus/main_menu.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/menus/main_menu.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/menus/main_menu.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/boxgame/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/boxgame/main/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/boxgame/main/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/boxgame/main/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/boxgame/main/MouseInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/boxgame/main/MouseInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/boxgame/main/STATE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/boxgame/main/STATE.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -64,26 +72,26 @@
           <entry key="project.open.time.11" value="2" />
           <entry key="project.open.time.12" value="2" />
           <entry key="project.open.time.14" value="1" />
-          <entry key="project.open.time.15" value="1" />
+          <entry key="project.open.time.15" value="2" />
           <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.29" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="13" />
+          <entry key="project.opened" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="2" />
-          <entry key="java" value="67" />
+          <entry key="java" value="73" />
           <entry key="png" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Image" value="1" />
-          <entry key="JAVA" value="67" />
+          <entry key="JAVA" value="73" />
           <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
@@ -91,13 +99,13 @@
         <counts>
           <entry key="dummy" value="6" />
           <entry key="gitignore" value="3" />
-          <entry key="java" value="7269" />
+          <entry key="java" value="7801" />
           <entry key="txt" value="121" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="7269" />
+          <entry key="JAVA" value="7801" />
           <entry key="PLAIN_TEXT" value="130" />
         </counts>
       </usages-collector>
@@ -165,21 +173,22 @@
         <option value="$PROJECT_DIR$/src/com/boxgame/main/HUD.java" />
         <option value="$PROJECT_DIR$/src/com/boxgame/main/Player.java" />
         <option value="$PROJECT_DIR$/src/com/boxgame/main/Camera.java" />
-        <option value="$PROJECT_DIR$/src/com/boxgame/main/Menu.java" />
-        <option value="$PROJECT_DIR$/src/com/boxgame/main/STATE.java" />
         <option value="$PROJECT_DIR$/src/com/boxgame/main/Credits.java" />
         <option value="$PROJECT_DIR$/src/com/boxgame/main/Help.java" />
-        <option value="$PROJECT_DIR$/src/com/boxgame/main/MouseInput.java" />
         <option value="$PROJECT_DIR$/plans.txt" />
+        <option value="$PROJECT_DIR$/src/com/boxgame/main/Menu.java" />
+        <option value="$PROJECT_DIR$/src/com/boxgame/main/STATE.java" />
+        <option value="$PROJECT_DIR$/src/com/boxgame/main/Achievements.java" />
+        <option value="$PROJECT_DIR$/src/com/boxgame/main/MouseInput.java" />
         <option value="$PROJECT_DIR$/src/com/boxgame/main/Game.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="609" />
-    <option name="y" value="68" />
-    <option name="width" value="1029" />
-    <option name="height" value="1040" />
+    <option name="x" value="425" />
+    <option name="y" value="82" />
+    <option name="width" value="1271" />
+    <option name="height" value="878" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -189,6 +198,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -227,12 +238,10 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547996502419" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548099934350" />
     <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/Programs/Git/bin/git.exe" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -240,18 +249,18 @@
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\samue\IdeaProjects\boxgame\res" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.boxgame.main" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\samue\Git\boxgame\res\menus" />
       <recent name="C:\Users\samue\Git\boxgame\res\textures" />
       <recent name="C:\Users\samue\Git\boxgame\res\levels" />
       <recent name="C:\Users\samue\IdeaProjects\boxgame" />
       <recent name="C:\Users\samue\IdeaProjects\boxgame\src" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.boxgame.main" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\samue\IdeaProjects\boxgame\res" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -308,15 +317,15 @@
       <window_info id="UI Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.17537314" />
-      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.55916846" side_tool="true" visible="true" weight="0.2462039" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.17697228" />
+      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.54850745" side_tool="true" visible="true" weight="0.24728851" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="2" sideWeight="0.4946695" weight="0.329718" />
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" sideWeight="0.4989339" weight="0.329718" />
       <window_info anchor="bottom" id="Run" order="6" sideWeight="0.54477614" weight="0.2494577" />
-      <window_info anchor="bottom" id="Debug" order="7" sideWeight="0.44083154" visible="true" weight="0.2462039" />
+      <window_info active="true" anchor="bottom" id="Debug" order="7" sideWeight="0.45149255" visible="true" weight="0.24728851" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" />
@@ -463,20 +472,6 @@
     <entry file="file://$PROJECT_DIR$/res/menus/main_menu.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/boxgame/main/Menu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/boxgame/main/STATE.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/boxgame/main/Help.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -488,16 +483,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/boxgame/main/MouseInput.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="374" selection-start-line="374" selection-end-line="374" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/boxgame/main/Credits.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -505,10 +490,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/boxgame/main/STATE.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/boxgame/main/Menu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/boxgame/main/Achievements.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="e#192#193#0" expanded="true" />
+            <element signature="e#224#225#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/plans.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/boxgame/main/MouseInput.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
