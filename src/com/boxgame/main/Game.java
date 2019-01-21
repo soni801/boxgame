@@ -1,12 +1,15 @@
 package com.boxgame.main;
 
 /*
- * Author: son801
+ * Author: soni801
  */
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 
 public class Game extends Canvas implements Runnable
 {
@@ -45,6 +48,8 @@ public class Game extends Canvas implements Runnable
     private BufferedImage level10;
     private BufferedImage level11;
 
+    File achievementsFile;
+
     BufferedImage main_menu;
     BufferedImage pause_menu;
     BufferedImage settings_menu;
@@ -70,6 +75,11 @@ public class Game extends Canvas implements Runnable
 
     public Game()
     {
+        new File("C:\\Users\\" + System.getProperty("user.name") + "\\AppData\\Roaming\\soni801 games").mkdirs();
+        new File("C:\\Users\\" + System.getProperty("user.name") + "\\AppData\\Roaming\\soni801 games\\boxgame").mkdirs();
+        new File("C:\\Users\\" + System.getProperty("user.name") + "\\AppData\\Roaming\\soni801 games\\boxgame\\achievements.ini");
+        achievementsFile = new File("C:\\Users\\" + System.getProperty("user.name") + "\\AppData\\Roaming\\soni801 games\\boxgame\\achievements.ini");
+
         BufferedImageLoader loader = new BufferedImageLoader();
 
         level1 = loader.loadImage("/levels/level1.png");
@@ -253,6 +263,31 @@ public class Game extends Canvas implements Runnable
 
         g.dispose();
         bs.show();
+    }
+
+    public String getProperty(File file, String key, String defaultAnswer)
+    {
+        boolean done = false;
+        String output = "";
+        try
+        {
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            while (!done)
+            {
+                output = reader.readLine();
+                if (output.substring(0, key.length()).equals(key))
+                {
+                    done = true;
+                }
+            }
+            return output.substring(key.length() + 1);
+        }
+        catch (Exception e)
+        {
+            System.out.println("Could not find setting.");
+            System.out.println("Returning default answer. (" + defaultAnswer + ")");
+            return defaultAnswer;
+        }
     }
 
     public void loadLevel()
