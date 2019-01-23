@@ -8,6 +8,8 @@ public class Player extends GameObject
     private boolean collision;
     private boolean loaded;
     private int timer;
+    private int time = 0;
+    private int timeTimer = 0;
 
     private BufferedImage player_image;
 
@@ -48,12 +50,18 @@ public class Player extends GameObject
                         x += velX * -1;
                         y += velY * -1;
                         collision = true;
+                        Achievements.ACHIEVEMENT_3_STATUS = false;
                         break;
                     case Finish :
+                        if (game.level == 1)
+                        {
+                            if (time <= 15) Achievements.ACHIEVEMENT_2 = true;
+                        }
                         if (!loaded)
                         {
                             game.level++;
                             game.loadLevel();
+                            Achievements.ACHIEVEMENT_1_PROGRESS = 0;
                             loaded = true;
                             timer = 100;
                         }
@@ -68,6 +76,7 @@ public class Player extends GameObject
                         break;
                     case Backer :
                         game.loadLevel();
+                        Achievements.ACHIEVEMENT_1_PROGRESS++;
                         break;
                 }
             }
@@ -99,6 +108,18 @@ public class Player extends GameObject
             case 8  : player_image = ss.grabImage(2, 4, 32, 32); break;
             default : player_image = null;
         }
+
+        if (game.level == 1)
+        {
+            if (timeTimer >= 60)
+            {
+                time++;
+                timeTimer = 0;
+            }
+            else timeTimer++;
+        }
+
+        if (Achievements.ACHIEVEMENT_1_PROGRESS == 5) Achievements.ACHIEVEMENT_1 = true;
     }
 
     public void render(Graphics g)

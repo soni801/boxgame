@@ -17,7 +17,7 @@ public class End
 
     public void tick()
     {
-
+        if (Achievements.ACHIEVEMENT_3_STATUS) Achievements.ACHIEVEMENT_3 = true;
     }
 
     public void render(Graphics g)

@@ -8,9 +8,12 @@ import java.awt.*;
 
 public class Achievements
 {
-    public static boolean TOUCH_BACKER_5_TIMES_IN_THE_SAME_LEVEL = false;
-    public static boolean DO_ALL_LEVELS_WITHOUT_HITTING_WALL = false;
-    public static boolean DO_LEVEL_1_IN_15_SEC = false;
+    public static boolean ACHIEVEMENT_1 = false; // Touch red block 5 times in the same level
+    public static boolean ACHIEVEMENT_2 = false; // Do level 1 in 15 seconds
+    public static boolean ACHIEVEMENT_3 = false; // Do all levels without touching the wall once
+
+    public static int ACHIEVEMENT_1_PROGRESS;
+    public static boolean ACHIEVEMENT_3_STATUS = true;
 
     public int mouseOver;
 
@@ -23,16 +26,16 @@ public class Achievements
 
     public static void load()
     {
-        TOUCH_BACKER_5_TIMES_IN_THE_SAME_LEVEL = Boolean.getBoolean(Game.getProperty(game.achievementsFile, "touchBacker5TimesInTheSameLevel", "false"));
-        DO_ALL_LEVELS_WITHOUT_HITTING_WALL = Boolean.getBoolean(Game.getProperty(game.achievementsFile, "doAllLevelsWithoutHittingWall", "false"));
-        DO_LEVEL_1_IN_15_SEC = Boolean.getBoolean(Game.getProperty(game.achievementsFile, "doLevel1In15Sec", "false"));
+        ACHIEVEMENT_1 = Boolean.valueOf(Game.getProperty(game.achievementsFile, "achievement-1", "false"));
+        ACHIEVEMENT_2 = Boolean.valueOf(Game.getProperty(game.achievementsFile, "achievement-2", "false"));
+        ACHIEVEMENT_3 = Boolean.valueOf(Game.getProperty(game.achievementsFile, "achievement-3", "false"));
     }
 
     public static void save()
     {
-        Game.setProperty(game.achievementsFile, "touchBacker5TimesInTheSameLevel", String.valueOf(TOUCH_BACKER_5_TIMES_IN_THE_SAME_LEVEL));
-        Game.setProperty(game.achievementsFile, "doAllLevelsWithoutHittingWall", String.valueOf(DO_ALL_LEVELS_WITHOUT_HITTING_WALL));
-        Game.setProperty(game.achievementsFile, "doLevel1In15Sec", String.valueOf(DO_LEVEL_1_IN_15_SEC));
+        Game.setProperty(game.achievementsFile, "achievement-1", String.valueOf(ACHIEVEMENT_1));
+        Game.setProperty(game.achievementsFile, "achievement-2", String.valueOf(ACHIEVEMENT_2));
+        Game.setProperty(game.achievementsFile, "achievement-3", String.valueOf(ACHIEVEMENT_3));
     }
 
     public void tick()
@@ -48,5 +51,17 @@ public class Achievements
             g.fillRect(0, 520, Game.WIDTH, 30);
 
         g.drawImage(game.achievements_menu, 0, -45, null);
+
+        g.setFont(new Font("arial", Font.BOLD, 30));
+        FontMetrics metrics = g.getFontMetrics(new Font("arial", Font.BOLD, 30));
+
+        g.setColor(ACHIEVEMENT_1 ? Color.GREEN : Color.RED);
+        g.drawString("Touch red block 5 times in the same level", Game.WIDTH / 2 - metrics.stringWidth("Touch red block 5 times in the same level") / 2, 200);
+
+        g.setColor(ACHIEVEMENT_2 ? Color.GREEN : Color.RED);
+        g.drawString("Do level 1 in 15 seconds", Game.WIDTH / 2 - metrics.stringWidth("Do level 1 in 15 seconds") / 2, 300);
+
+        g.setColor(ACHIEVEMENT_3 ? Color.GREEN : Color.RED);
+        g.drawString("Do all levels without touching the wall once", Game.WIDTH / 2 - metrics.stringWidth("Do all levels without touching the wall once") / 2, 400);
     }
 }
