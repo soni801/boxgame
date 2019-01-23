@@ -7,14 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="13dcafc9-6ae7-44cb-b95d-2b79397385ff" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/boxgame/com/boxgame/main/Achievements.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/boxgame/com/boxgame/main/Achievements.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/boxgame/com/boxgame/main/End.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/boxgame/com/boxgame/main/End.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/boxgame/com/boxgame/main/Player$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/boxgame/com/boxgame/main/Player$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/boxgame/com/boxgame/main/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/boxgame/com/boxgame/main/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/boxgame/main/Achievements.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/boxgame/main/Achievements.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/boxgame/main/End.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/boxgame/main/End.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/boxgame/main/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/boxgame/main/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/boxgame/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/boxgame/main/Game.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -97,13 +90,13 @@
         <counts>
           <entry key="dummy" value="6" />
           <entry key="gitignore" value="3" />
-          <entry key="java" value="10121" />
+          <entry key="java" value="10129" />
           <entry key="txt" value="169" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="10121" />
+          <entry key="JAVA" value="10129" />
           <entry key="PLAIN_TEXT" value="178" />
         </counts>
       </usages-collector>
@@ -177,11 +170,11 @@
         <option value="$PROJECT_DIR$/src/com/boxgame/main/STATE.java" />
         <option value="$PROJECT_DIR$/src/com/boxgame/main/Window.java" />
         <option value="$PROJECT_DIR$/plans.txt" />
-        <option value="$PROJECT_DIR$/src/com/boxgame/main/Game.java" />
         <option value="$PROJECT_DIR$/src/com/boxgame/main/Achievements.java" />
         <option value="$PROJECT_DIR$/src/com/boxgame/main/End.java" />
         <option value="$PROJECT_DIR$/src/com/boxgame/main/MouseInput.java" />
         <option value="$PROJECT_DIR$/src/com/boxgame/main/Player.java" />
+        <option value="$PROJECT_DIR$/src/com/boxgame/main/Game.java" />
       </list>
     </option>
   </component>
@@ -242,7 +235,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548267467692" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548267688171" />
     <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/Programs/Git/bin/git.exe" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -318,7 +311,7 @@
       <window_info id="UI Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.17857143" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.17857143" />
       <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.5501066" side_tool="true" visible="true" weight="0.24728851" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="2" sideWeight="0.49413645" weight="0.329718" />
@@ -326,7 +319,7 @@
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" sideWeight="0.49733475" weight="0.329718" />
       <window_info anchor="bottom" id="Run" order="6" sideWeight="0.54477614" weight="0.2494577" />
-      <window_info anchor="bottom" id="Debug" order="7" sideWeight="0.4498934" visible="true" weight="0.24728851" />
+      <window_info active="true" anchor="bottom" id="Debug" order="7" sideWeight="0.4498934" visible="true" weight="0.24728851" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" />
