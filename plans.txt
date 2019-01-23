@@ -6,3 +6,5 @@ add more skins
 add custom mouse cursor
 add achievements
 add discord rich presence
+
+clean code

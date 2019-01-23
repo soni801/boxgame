@@ -10,7 +10,6 @@
       <change beforePath="$PROJECT_DIR$/plans.txt" beforeDir="false" afterPath="$PROJECT_DIR$/plans.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/boxgame/main/Achievements.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/boxgame/main/Achievements.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/boxgame/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/boxgame/main/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/boxgame/main/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/boxgame/main/Window.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -93,14 +92,14 @@
         <counts>
           <entry key="dummy" value="6" />
           <entry key="gitignore" value="3" />
-          <entry key="java" value="8291" />
-          <entry key="txt" value="157" />
+          <entry key="java" value="8970" />
+          <entry key="txt" value="169" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="8291" />
-          <entry key="PLAIN_TEXT" value="166" />
+          <entry key="JAVA" value="8970" />
+          <entry key="PLAIN_TEXT" value="178" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -111,10 +110,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/boxgame/main/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="137" column="56" selection-start-line="137" selection-start-column="56" selection-end-line="137" selection-end-column="56" />
+            <state relative-caret-position="17">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#13649#13650#0" expanded="true" />
+                <element signature="e#13700#13701#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -136,8 +137,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/plans.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="7" selection-end-column="25" />
+            <state relative-caret-position="153">
+              <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -185,10 +186,10 @@
         <option value="$PROJECT_DIR$/src/com/boxgame/main/Menu.java" />
         <option value="$PROJECT_DIR$/src/com/boxgame/main/STATE.java" />
         <option value="$PROJECT_DIR$/src/com/boxgame/main/MouseInput.java" />
-        <option value="$PROJECT_DIR$/plans.txt" />
         <option value="$PROJECT_DIR$/src/com/boxgame/main/Window.java" />
-        <option value="$PROJECT_DIR$/src/com/boxgame/main/Achievements.java" />
+        <option value="$PROJECT_DIR$/plans.txt" />
         <option value="$PROJECT_DIR$/src/com/boxgame/main/Game.java" />
+        <option value="$PROJECT_DIR$/src/com/boxgame/main/Achievements.java" />
       </list>
     </option>
   </component>
@@ -249,7 +250,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548261476951" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548264096121" />
     <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/Programs/Git/bin/git.exe" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -326,14 +327,14 @@
       <window_info id="Capture Tool" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.17857143" />
-      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.54957354" side_tool="true" visible="true" weight="0.24728851" />
+      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.5501066" side_tool="true" visible="true" weight="0.24728851" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="2" sideWeight="0.49413645" weight="0.329718" />
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Message" order="4" />
-      <window_info anchor="bottom" id="Find" order="5" sideWeight="0.4989339" weight="0.329718" />
+      <window_info anchor="bottom" id="Find" order="5" sideWeight="0.49733475" weight="0.329718" />
       <window_info anchor="bottom" id="Run" order="6" sideWeight="0.54477614" weight="0.2494577" />
-      <window_info active="true" anchor="bottom" id="Debug" order="7" sideWeight="0.45042643" visible="true" weight="0.24728851" />
+      <window_info active="true" anchor="bottom" id="Debug" order="7" sideWeight="0.4498934" visible="true" weight="0.24728851" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" />
@@ -345,7 +346,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.25" />
-      <window_info anchor="right" id="Structure" order="8" visible="true" weight="0.15565032" />
+      <window_info anchor="right" id="Structure" order="8" visible="true" weight="0.15245202" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -531,8 +532,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/plans.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="7" selection-end-column="25" />
+        <state relative-caret-position="153">
+          <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -549,10 +550,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/boxgame/main/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="137" column="56" selection-start-line="137" selection-start-column="56" selection-end-line="137" selection-end-column="56" />
+        <state relative-caret-position="17">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#13649#13650#0" expanded="true" />
+            <element signature="e#13700#13701#0" expanded="true" />
           </folding>
         </state>
       </provider>

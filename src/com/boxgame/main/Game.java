@@ -132,6 +132,8 @@ public class Game extends Canvas implements Runnable
         this.addMouseListener(mouseInput);
         this.addMouseMotionListener(mouseInput);
 
+        Achievements.load();
+
         level = 0;
         inGame = false;
 
@@ -417,5 +419,12 @@ public class Game extends Canvas implements Runnable
     public static void main(String[] args)
     {
         new Game();
+        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable()
+        {
+            public void run()
+            {
+                Achievements.save();
+            }
+        }, "Shutdown-thread"));
     }
 }

@@ -8,23 +8,31 @@ import java.awt.*;
 
 public class Achievements
 {
+    public static boolean TOUCH_BACKER_5_TIMES_IN_THE_SAME_LEVEL = false;
+    public static boolean DO_ALL_LEVELS_WITHOUT_HITTING_WALL = false;
+    public static boolean DO_LEVEL_1_IN_15_SEC = false;
+
     public int mouseOver;
 
-    private Game game;
+    private static Game game;
 
     public Achievements(Game game)
     {
         this.game = game;
     }
 
-    public void load()
+    public static void load()
     {
-
+        TOUCH_BACKER_5_TIMES_IN_THE_SAME_LEVEL = Boolean.getBoolean(Game.getProperty(game.achievementsFile, "touchBacker5TimesInTheSameLevel", "false"));
+        DO_ALL_LEVELS_WITHOUT_HITTING_WALL = Boolean.getBoolean(Game.getProperty(game.achievementsFile, "doAllLevelsWithoutHittingWall", "false"));
+        DO_LEVEL_1_IN_15_SEC = Boolean.getBoolean(Game.getProperty(game.achievementsFile, "doLevel1In15Sec", "false"));
     }
 
-    public void save()
+    public static void save()
     {
-
+        Game.setProperty(game.achievementsFile, "touchBacker5TimesInTheSameLevel", String.valueOf(TOUCH_BACKER_5_TIMES_IN_THE_SAME_LEVEL));
+        Game.setProperty(game.achievementsFile, "doAllLevelsWithoutHittingWall", String.valueOf(DO_ALL_LEVELS_WITHOUT_HITTING_WALL));
+        Game.setProperty(game.achievementsFile, "doLevel1In15Sec", String.valueOf(DO_LEVEL_1_IN_15_SEC));
     }
 
     public void tick()
