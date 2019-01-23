@@ -7,9 +7,9 @@ package com.boxgame.main;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
+import java.nio.file.Files;
+import java.util.List;
 
 public class Game extends Canvas implements Runnable
 {
@@ -265,7 +265,7 @@ public class Game extends Canvas implements Runnable
         bs.show();
     }
 
-    public String getProperty(File file, String key, String defaultAnswer)
+    public static String getProperty(File file, String key, String defaultAnswer)
     {
         boolean done = false;
         String output = "";
@@ -284,9 +284,67 @@ public class Game extends Canvas implements Runnable
         }
         catch (Exception e)
         {
-            System.out.println("Could not find setting.");
+            System.out.println("Could not find property.");
             System.out.println("Returning default answer. (" + defaultAnswer + ")");
             return defaultAnswer;
+        }
+    }
+
+    public static void setProperty(File file, String key, String newProperty)
+    {
+        boolean done = false;
+        String input = "";
+        int line = 0;
+        List<String> lines;
+        if (file.exists())
+        {
+            try
+            {
+                BufferedReader reader = new BufferedReader(new FileReader(file));
+                while (!done)
+                {
+                    input = reader.readLine();
+                    if (input.substring(0, key.length()).equals(key))
+                    {
+                        done = true;
+                    }
+                    line++;
+                }
+                lines = Files.readAllLines(file.toPath());
+                lines.set(line - 1, input.substring(0, key.length() + 1) + newProperty);
+                Files.write(file.toPath(), lines);
+            }
+            catch (Exception e)
+            {
+                try
+                {
+                    lines = Files.readAllLines(file.toPath());
+                    lines.set(line, key + "=" + newProperty + "\n");
+                    Files.write(file.toPath(), lines);
+                }
+                catch (IOException e1)
+                {
+                    System.out.println("Could not set property.");
+                }
+            }
+        }
+        else
+        {
+            try
+            {
+                BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+                writer.write("\n");
+                writer.close();
+
+                lines = Files.readAllLines(file.toPath());
+                lines.set(0, key + "=" + newProperty + "\n");
+                Files.write(file.toPath(), lines);
+            }
+            catch (Exception e)
+            {
+                System.out.println("Could not set property.");
+            }
+
         }
     }
 

@@ -5,3 +5,4 @@ add i18n
 add more skins
 add custom mouse cursor
 add achievements
+add discord rich presence

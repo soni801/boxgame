@@ -17,6 +17,16 @@ public class Achievements
         this.game = game;
     }
 
+    public void load()
+    {
+
+    }
+
+    public void save()
+    {
+
+    }
+
     public void tick()
     {
 
