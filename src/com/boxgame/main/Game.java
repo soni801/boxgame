@@ -118,7 +118,7 @@ public class Game extends Canvas implements Runnable
         menu = new Menu(this);
         hud = new HUD(this);
         end = new End(this, hud);
-        paused = new Paused(this);
+        paused = new Paused(this, hud);
         help = new Help(this);
         credits = new Credits(this);
         achievements = new Achievements(this);
@@ -391,24 +391,16 @@ public class Game extends Canvas implements Runnable
                 for (int y = 0; y < h; y++)
                 {
                     int pixel = image.getRGB(x, y);
-                    int red = (pixel >> 16) & 0xff;
-                    int green = (pixel >> 8) & 0xff;
-                    int blue = (pixel) & 0xff;
 
-                    if (red == 255 && blue == 0 && green == 0)
-                        handler.addObject(new Block(x * 64, y * 64, ID.Block, this));
+                    int r = (pixel >> 16) & 0xff;
+                    int g = (pixel >> 8) & 0xff;
+                    int b = (pixel) & 0xff;
 
-                    if (blue == 255 && red == 0 && green == 0)
-                        handler.addObject(new Player(x * 64, y * 64, ID.Player, handler, this, settings));
-
-                    if (green == 255 && red == 0 && blue == 0)
-                        handler.addObject(new Finish(x * 64, y * 64, ID.Finish, this));
-
-                    if (red == 255 && green == 255 && blue == 0)
-                        handler.addObject(new Teleporter(x * 64, y * 64, ID.Teleporter, this));
-
-                    if (red == 255 && green == 0 && blue == 255)
-                        handler.addObject(new Backer(x * 64, y * 64, ID.Backer, this));
+                    if (r == 255 && b == 0 && g == 0) handler.addObject(new Block(x * 64, y * 64, ID.Block, this));
+                    if (b == 255 && r == 0 && g == 0) handler.addObject(new Player(x * 64, y * 64, ID.Player, handler, this, settings));
+                    if (g == 255 && r == 0 && b == 0) handler.addObject(new Finish(x * 64, y * 64, ID.Finish, this));
+                    if (r == 255 && g == 255 && b == 0) handler.addObject(new Teleporter(x * 64, y * 64, ID.Teleporter, this));
+                    if (r == 255 && g == 0 && b == 255) handler.addObject(new Backer(x * 64, y * 64, ID.Backer, this));
                 }
             }
         }
@@ -417,6 +409,19 @@ public class Game extends Canvas implements Runnable
             gameState = STATE.End;
             inGame = false;
         }
+    }
+
+    public String ensureLength(String input, int length)
+    {
+        if (input.length() > length) input = input.substring(input.length() - length);
+        else if (input.length() < length)
+        {
+            // This uses StringBuilder because that is apparently better than +=
+            StringBuilder inputBuilder = new StringBuilder(input);
+            for (int i = length - inputBuilder.length(); i > 0; i--) inputBuilder.insert(0, "0");
+            input = inputBuilder.toString();
+        }
+        return input;
     }
 
     public static void main(String[] args)

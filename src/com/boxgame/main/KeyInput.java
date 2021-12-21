@@ -54,24 +54,22 @@ public class KeyInput extends KeyAdapter
         switch (editing)
         {
             case 0 :
-                if (game.gameState == STATE.Game)
+                switch (game.gameState)
                 {
-                    for (int i = 0; i < handler.object.size(); i++)
-                    {
-                        GameObject tempObject = handler.object.get(i);
-
-                        if (tempObject.getId() == ID.Player)
+                    case Game:
+                        for (GameObject o : handler.object)
                         {
-                            if (key == up) handler.setUp(true);
-                            if (key == down) handler.setDown(true);
-                            if (key == left) handler.setLeft(true);
-                            if (key == right) handler.setRight(true);
+                            if (o instanceof Player)
+                            {
+                                if (key == up) handler.setUp(true);
+                                if (key == down) handler.setDown(true);
+                                if (key == left) handler.setLeft(true);
+                                if (key == right) handler.setRight(true);
+                            }
                         }
-                    }
-                    if (key == pause)
-                    {
-                        game.gameState = STATE.Paused;
-                    }
+                        if (key == pause) game.gameState = STATE.Paused;
+                        break;
+                    case Paused: if (key == pause) game.gameState = STATE.Game;
                 }
                 break;
             case 1 :
@@ -107,11 +105,9 @@ public class KeyInput extends KeyAdapter
     {
         int key = e.getKeyCode();
 
-        for (int i = 0; i < handler.object.size(); i++)
+        for (GameObject o : handler.object)
         {
-            GameObject tempObject = handler.object.get(i);
-
-            if (tempObject.getId() == ID.Player)
+            if (o instanceof Player)
             {
                 if (key == up) handler.setUp(false);
                 if (key == down) handler.setDown(false);

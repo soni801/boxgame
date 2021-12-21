@@ -1,10 +1,6 @@
-add new level system
-add block disappearing when button pressed
-add timer
-add i18n
-add more skins
+implement i18n
+rework skin selection
 add custom mouse cursor
-add achievements
-add discord rich presence
-
-clean code
+persistent settings & achievements
+rework achievement display
+implement discord rich presence

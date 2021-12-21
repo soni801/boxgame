@@ -10,17 +10,24 @@ public class Paused
     public int mouseOver;
 
     private final Game game;
+    private final HUD hud;
 
-    public Paused(Game game)
+    public Paused(Game game, HUD hud)
     {
         this.game = game;
+        this.hud = hud;
 
         mouseOver = 0;
     }
 
     public void tick()
     {
+        long secondsSpent = (System.currentTimeMillis() - hud.startTime) / 1000;
+        while (secondsSpent >= 60) secondsSpent -= 60;
 
+        hud.timeSpent[0] = game.ensureLength(String.valueOf(System.currentTimeMillis() - hud.startTime), 3);
+        hud.timeSpent[1] = game.ensureLength(String.valueOf(secondsSpent), 2);
+        hud.timeSpent[2] = game.ensureLength(String.valueOf((System.currentTimeMillis() - hud.startTime) / 1000 / 60), 2);
     }
 
     public void render(Graphics g)
@@ -37,5 +44,9 @@ public class Paused
         }
 
         g.drawImage(game.pause_menu, 0, -45, null);
+
+        g.setColor(Color.BLACK);
+        g.setFont(new Font("arial", Font.PLAIN, 30));
+        g.drawString(String.format("%s:%s.%s", hud.timeSpent[2], hud.timeSpent[1], hud.timeSpent[0]), 10, 30);
     }
 }
