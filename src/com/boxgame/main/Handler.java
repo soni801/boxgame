@@ -1,36 +1,25 @@
 package com.boxgame.main;
 
-/*
- * Author: soni801
- */
-
 import java.awt.*;
 import java.util.LinkedList;
 
+/**
+ * @author Soni
+ */
 public class Handler
 {
-    LinkedList<GameObject> object = new LinkedList<GameObject>();
+    LinkedList<GameObject> object = new LinkedList<>();
 
     private boolean up, down, left, right;
 
     public void tick()
     {
-        for (int i = 0; i < object.size(); i++)
-        {
-            GameObject tempObject = object.get(i);
-
-            tempObject.tick();
-        }
+        for (GameObject tempObject : object) tempObject.tick();
     }
 
     public void render(Graphics g)
     {
-        for (int i = 0; i < object.size(); i++)
-        {
-            GameObject tempObject = object.get(i);
-
-            tempObject.render(g);
-        }
+        for (GameObject tempObject : object) tempObject.render(g);
     }
 
     public void addObject(GameObject object) { this.object.add(object); }

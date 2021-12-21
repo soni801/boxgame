@@ -3,6 +3,9 @@ package com.boxgame.main;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+/**
+ * @author Soni
+ */
 public class KeyInput extends KeyAdapter
 {
     public int editing;
@@ -11,8 +14,8 @@ public class KeyInput extends KeyAdapter
 
     public int up, down, left, right, pause;
 
-    private Handler handler;
-    private Game game;
+    private final Handler handler;
+    private final Game game;
 
     public KeyInput(Handler handler, Game game)
     {

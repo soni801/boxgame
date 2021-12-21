@@ -2,11 +2,14 @@ package com.boxgame.main;
 
 import java.awt.*;
 
+/**
+ * @author Soni
+ */
 public class End
 {
     public int mouseOver;
 
-    private Game game;
+    private final Game game;
 
     public End(Game game)
     {

@@ -1,16 +1,15 @@
 package com.boxgame.main;
 
-/*
- * Author: soni801
- */
-
 import java.awt.*;
 
+/**
+ * @author Soni
+ */
 public class Help
 {
     public int mouseOver;
 
-    private Game game;
+    private final Game game;
 
     public Help(Game game)
     {

@@ -1,14 +1,13 @@
 package com.boxgame.main;
 
-/*
- * Author: soni801
- */
-
 import java.awt.*;
 
+/**
+ * @author Soni
+ */
 public class Backer extends GameObject
 {
-    private Game game;
+    private final Game game;
 
     public Backer(int x, int y, ID id, Game game)
     {

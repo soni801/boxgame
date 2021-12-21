@@ -3,6 +3,9 @@ package com.boxgame.main;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
+/**
+ * @author Soni
+ */
 public class Player extends GameObject
 {
     private boolean collision;
@@ -13,9 +16,9 @@ public class Player extends GameObject
 
     private BufferedImage player_image;
 
-    private Handler handler;
-    private Game game;
-    private Settings settings;
+    private final Handler handler;
+    private final Game game;
+    private final Settings settings;
 
     public Player(int x, int y, ID id, Handler handler, Game game, Settings settings)
     {
@@ -69,9 +72,21 @@ public class Player extends GameObject
                     case Teleporter :
                         switch (game.level)
                         {
-                            case 9  : x = 140;  y = 1300; break;
-                            case 10 : x = 2450; y = 2440; break;
-                            case 11 : x = 2580; y = 1040; break;
+                            case 9 ->
+                            {
+                                x = 140;
+                                y = 1300;
+                            }
+                            case 10 ->
+                            {
+                                x = 2450;
+                                y = 2440;
+                            }
+                            case 11 ->
+                            {
+                                x = 2580;
+                                y = 1040;
+                            }
                         }
                         break;
                     case Backer :
@@ -98,15 +113,15 @@ public class Player extends GameObject
         SpriteSheet ss = new SpriteSheet(game.sprite_sheet);
         switch (settings.playerImage)
         {
-            case 1  : player_image = ss.grabImage(1, 1, 32, 32); break;
-            case 2  : player_image = ss.grabImage(1, 2, 32, 32); break;
-            case 3  : player_image = ss.grabImage(1, 3, 32, 32); break;
-            case 4  : player_image = ss.grabImage(1, 4, 32, 32); break;
-            case 5  : player_image = ss.grabImage(2, 1, 32, 32); break;
-            case 6  : player_image = ss.grabImage(2, 2, 32, 32); break;
-            case 7  : player_image = ss.grabImage(2, 3, 32, 32); break;
-            case 8  : player_image = ss.grabImage(2, 4, 32, 32); break;
-            default : player_image = null;
+            case 1 -> player_image = ss.grabImage(1, 1, 32, 32);
+            case 2 -> player_image = ss.grabImage(1, 2, 32, 32);
+            case 3 -> player_image = ss.grabImage(1, 3, 32, 32);
+            case 4 -> player_image = ss.grabImage(1, 4, 32, 32);
+            case 5 -> player_image = ss.grabImage(2, 1, 32, 32);
+            case 6 -> player_image = ss.grabImage(2, 2, 32, 32);
+            case 7 -> player_image = ss.grabImage(2, 3, 32, 32);
+            case 8 -> player_image = ss.grabImage(2, 4, 32, 32);
+            default -> player_image = null;
         }
 
         if (game.level == 1)

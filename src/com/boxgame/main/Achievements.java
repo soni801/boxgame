@@ -1,11 +1,10 @@
 package com.boxgame.main;
 
-/*
- * Author: soni801
- */
-
 import java.awt.*;
 
+/**
+ * @author Soni
+ */
 public class Achievements
 {
     public static boolean ACHIEVEMENT_1 = false; // Touch red block 5 times in the same level
@@ -21,14 +20,14 @@ public class Achievements
 
     public Achievements(Game game)
     {
-        this.game = game;
+        Achievements.game = game;
     }
 
     public static void load()
     {
-        ACHIEVEMENT_1 = Boolean.valueOf(Game.getProperty(game.achievementsFile, "achievement-1", "false"));
-        ACHIEVEMENT_2 = Boolean.valueOf(Game.getProperty(game.achievementsFile, "achievement-2", "false"));
-        ACHIEVEMENT_3 = Boolean.valueOf(Game.getProperty(game.achievementsFile, "achievement-3", "false"));
+        ACHIEVEMENT_1 = Boolean.parseBoolean(Game.getProperty(game.achievementsFile, "achievement-1", "false"));
+        ACHIEVEMENT_2 = Boolean.parseBoolean(Game.getProperty(game.achievementsFile, "achievement-2", "false"));
+        ACHIEVEMENT_3 = Boolean.parseBoolean(Game.getProperty(game.achievementsFile, "achievement-3", "false"));
     }
 
     public static void save()
@@ -38,10 +37,7 @@ public class Achievements
         Game.setProperty(game.achievementsFile, "achievement-3", String.valueOf(ACHIEVEMENT_3));
     }
 
-    public void tick()
-    {
-
-    }
+    public void tick() { }
 
     public void render(Graphics g)
     {

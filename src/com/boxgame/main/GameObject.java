@@ -1,11 +1,10 @@
 package com.boxgame.main;
 
-/*
- * Author: soni801
- */
-
 import java.awt.*;
 
+/**
+ * @author Soni
+ */
 public abstract class GameObject
 {
     protected int x, y;

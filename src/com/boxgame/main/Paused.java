@@ -2,11 +2,14 @@ package com.boxgame.main;
 
 import java.awt.*;
 
+/**
+ * @author Soni
+ */
 public class Paused
 {
     public int mouseOver;
 
-    private Game game;
+    private final Game game;
 
     public Paused(Game game)
     {
@@ -26,19 +29,13 @@ public class Paused
 
         switch (mouseOver)
         {
-            case 1 : g.fillRect(0, 400, Game.WIDTH, 30); break;
-            case 2 : g.fillRect(0, 430, Game.WIDTH, 30); break;
-            case 3 : g.fillRect(0, 460, Game.WIDTH, 30); break;
-            case 4 : g.fillRect(0, 490, Game.WIDTH, 30); break;
-            case 5 : g.fillRect(0, 520, Game.WIDTH, 30); break;
+            case 1 -> g.fillRect(0, 400, Game.WIDTH, 30);
+            case 2 -> g.fillRect(0, 430, Game.WIDTH, 30);
+            case 3 -> g.fillRect(0, 460, Game.WIDTH, 30);
+            case 4 -> g.fillRect(0, 490, Game.WIDTH, 30);
+            case 5 -> g.fillRect(0, 520, Game.WIDTH, 30);
         }
 
         g.drawImage(game.pause_menu, 0, -45, null);
-
-        //g.drawRect(0, 400, Game.WIDTH, 30);
-        //g.drawRect(0, 430, Game.WIDTH, 30);
-        //g.drawRect(0, 460, Game.WIDTH, 30);
-        //g.drawRect(0, 490, Game.WIDTH, 30);
-        //g.drawRect(0, 520, Game.WIDTH, 30);
     }
 }

@@ -1,9 +1,8 @@
 package com.boxgame.main;
 
-/*
- * Author: soni801
+/**
+ * @author Soni
  */
-
 public enum STATE
 {
     Menu,

@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="boxgame:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/boxgame_jar</output-path>
-    <root id="archive" name="boxgame.jar">
-      <element id="module-output" name="boxgame" />
-    </root>
-  </artifact>
-</component>

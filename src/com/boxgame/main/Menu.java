@@ -2,11 +2,14 @@ package com.boxgame.main;
 
 import java.awt.*;
 
+/**
+ * @author Soni
+ */
 public class Menu
 {
     public int mouseOver;
 
-    private Game game;
+    private final Game game;
 
     public Menu(Game game)
     {
@@ -26,12 +29,12 @@ public class Menu
 
         switch (mouseOver)
         {
-            case 1 : g.fillRect(0, 370, Game.WIDTH, 30); break;
-            case 2 : g.fillRect(0, 400, Game.WIDTH, 30); break;
-            case 3 : g.fillRect(0, 430, Game.WIDTH, 30); break;
-            case 4 : g.fillRect(0, 460, Game.WIDTH, 30); break;
-            case 5 : g.fillRect(0, 490, Game.WIDTH, 30); break;
-            case 6 : g.fillRect(0, 520, Game.WIDTH, 30); break;
+            case 1 -> g.fillRect(0, 370, Game.WIDTH, 30);
+            case 2 -> g.fillRect(0, 400, Game.WIDTH, 30);
+            case 3 -> g.fillRect(0, 430, Game.WIDTH, 30);
+            case 4 -> g.fillRect(0, 460, Game.WIDTH, 30);
+            case 5 -> g.fillRect(0, 490, Game.WIDTH, 30);
+            case 6 -> g.fillRect(0, 520, Game.WIDTH, 30);
         }
 
         g.drawImage(game.main_menu, 0, -45, null);

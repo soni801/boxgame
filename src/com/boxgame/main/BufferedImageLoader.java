@@ -1,13 +1,13 @@
 package com.boxgame.main;
 
-/*
- * Author: soni801
- */
-
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Objects;
 
+/**
+ * @author Soni
+ */
 public class BufferedImageLoader
 {
     BufferedImage image;
@@ -16,7 +16,7 @@ public class BufferedImageLoader
     {
         try
         {
-            image = ImageIO.read(getClass().getResource(path));
+            image = ImageIO.read(Objects.requireNonNull(getClass().getResource(path)));
         }
         catch (IOException e)
         {

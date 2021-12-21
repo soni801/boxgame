@@ -2,9 +2,12 @@ package com.boxgame.main;
 
 import java.awt.*;
 
+/**
+ * @author Soni
+ */
 public class Finish extends GameObject
 {
-    private Game game;
+    private final Game game;
 
     public Finish(int x, int y, ID id, Game game)
     {

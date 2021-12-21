@@ -2,9 +2,12 @@ package com.boxgame.main;
 
 import java.awt.*;
 
+/**
+ * @author Soni
+ */
 public class HUD
 {
-    private Game game;
+    private final Game game;
 
     public HUD(Game game)
     {

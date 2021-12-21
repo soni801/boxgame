@@ -1,9 +1,5 @@
 package com.boxgame.main;
 
-/*
- * Author: soni801
- */
-
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
@@ -11,42 +7,41 @@ import java.io.*;
 import java.nio.file.Files;
 import java.util.List;
 
+/**
+ * @author Soni
+ */
 public class Game extends Canvas implements Runnable
 {
-    private static final long serialVersionUID = 1L;
-
     public static final int WIDTH = 800, HEIGHT = WIDTH / 12 * 9;
     public static final String VERSION = "1.2";
     public int level;
     public boolean inGame;
 
-    private Handler handler;
+    private final Handler handler;
     private Thread thread;
     private boolean running = false;
 
-    private Menu menu;
-    private Camera camera;
-    private End end;
-    private HUD hud;
-    private Settings settings;
-    private KeyInput keyInput;
-    private Paused paused;
-    private Help help;
-    private Credits credits;
-    private Achievements achievements;
-    private MouseInput mouseInput;
+    private final Menu menu;
+    private final Camera camera;
+    private final End end;
+    private final HUD hud;
+    private final Settings settings;
+    private final Paused paused;
+    private final Help help;
+    private final Credits credits;
+    private final Achievements achievements;
 
-    private BufferedImage level1;
-    private BufferedImage level2;
-    private BufferedImage level3;
-    private BufferedImage level4;
-    private BufferedImage level5;
-    private BufferedImage level6;
-    private BufferedImage level7;
-    private BufferedImage level8;
-    private BufferedImage level9;
-    private BufferedImage level10;
-    private BufferedImage level11;
+    private final BufferedImage level1;
+    private final BufferedImage level2;
+    private final BufferedImage level3;
+    private final BufferedImage level4;
+    private final BufferedImage level5;
+    private final BufferedImage level6;
+    private final BufferedImage level7;
+    private final BufferedImage level8;
+    private final BufferedImage level9;
+    private final BufferedImage level10;
+    private final BufferedImage level11;
 
     File achievementsFile;
 
@@ -75,10 +70,11 @@ public class Game extends Canvas implements Runnable
 
     public Game()
     {
-        new File("C:\\Users\\" + System.getProperty("user.name") + "\\AppData\\Roaming\\soni801 games").mkdirs();
-        new File("C:\\Users\\" + System.getProperty("user.name") + "\\AppData\\Roaming\\soni801 games\\boxgame").mkdirs();
-        new File("C:\\Users\\" + System.getProperty("user.name") + "\\AppData\\Roaming\\soni801 games\\boxgame\\achievements.ini");
-        achievementsFile = new File("C:\\Users\\" + System.getProperty("user.name") + "\\AppData\\Roaming\\soni801 games\\boxgame\\achievements.ini");
+        // TODO: Fix the achievement code
+        //new File("C:\\Users\\" + System.getProperty("user.name") + "\\AppData\\Roaming\\soni801 games").mkdirs();
+        //new File("C:\\Users\\" + System.getProperty("user.name") + "\\AppData\\Roaming\\soni801 games\\boxgame").mkdirs();
+        //new File("C:\\Users\\" + System.getProperty("user.name") + "\\AppData\\Roaming\\soni801 games\\boxgame\\achievements.ini");
+        //achievementsFile = new File("C:\\Users\\" + System.getProperty("user.name") + "\\AppData\\Roaming\\soni801 games\\boxgame\\achievements.ini");
 
         BufferedImageLoader loader = new BufferedImageLoader();
 
@@ -115,17 +111,20 @@ public class Game extends Canvas implements Runnable
         on = loader.loadImage("/on.png");
         off = loader.loadImage("/off.png");
 
+        KeyInput keyInput;
+        MouseInput mouseInput;
+
         handler = new Handler();
         menu = new Menu(this);
-        keyInput = new KeyInput(handler, this);
-        settings = new Settings(keyInput, this);
-        camera = new Camera(0, 0, this, settings);
         end = new End(this);
         hud = new HUD(this);
         paused = new Paused(this);
         help = new Help(this);
         credits = new Credits(this);
         achievements = new Achievements(this);
+        keyInput = new KeyInput(handler, this);
+        settings = new Settings(keyInput, this);
+        camera = new Camera(0, 0, this, settings);
         mouseInput = new MouseInput(this, handler, keyInput, settings, menu, paused, help, end, credits, achievements);
 
         this.addKeyListener(keyInput);
@@ -207,14 +206,14 @@ public class Game extends Canvas implements Runnable
 
         switch (gameState)
         {
-            case Menu         : menu.tick();         break;
-            case Game         : hud.tick();          break;
-            case End          : end.tick();          break;
-            case Settings     : settings.tick();     break;
-            case Paused       : paused.tick();       break;
-            case Help         : help.tick();         break;
-            case Credits      : credits.tick();      break;
-            case Achievements : achievements.tick(); break;
+            case Menu -> menu.tick();
+            case Game -> hud.tick();
+            case End -> end.tick();
+            case Settings -> settings.tick();
+            case Paused -> paused.tick();
+            case Help -> help.tick();
+            case Credits -> credits.tick();
+            case Achievements -> achievements.tick();
         }
     }
 
@@ -249,14 +248,14 @@ public class Game extends Canvas implements Runnable
 
         switch (gameState)
         {
-            case Menu         : menu.render(g);         break;
-            case Game         : hud.render(g);          break;
-            case End          : end.render(g);          break;
-            case Settings     : settings.render(g);     break;
-            case Paused       : paused.render(g);       break;
-            case Help         : help.render(g);         break;
-            case Credits      : credits.render(g);      break;
-            case Achievements : achievements.render(g); break;
+            case Menu -> menu.render(g);
+            case Game -> hud.render(g);
+            case End -> end.render(g);
+            case Settings -> settings.render(g);
+            case Paused -> paused.render(g);
+            case Help -> help.render(g);
+            case Credits -> credits.render(g);
+            case Achievements -> achievements.render(g);
         }
 
         g.setFont(font);
@@ -277,7 +276,7 @@ public class Game extends Canvas implements Runnable
             while (!done)
             {
                 output = reader.readLine();
-                if (output.substring(0, key.length()).equals(key))
+                if (output.startsWith(key))
                 {
                     done = true;
                 }
@@ -306,7 +305,7 @@ public class Game extends Canvas implements Runnable
                 while (!done)
                 {
                     input = reader.readLine();
-                    if (input.substring(0, key.length()).equals(key))
+                    if (input.startsWith(key))
                     {
                         done = true;
                     }
@@ -364,18 +363,22 @@ public class Game extends Canvas implements Runnable
 
         switch (level)
         {
-            case 1  : image = level1;  break;
-            case 2  : image = level2;  break;
-            case 3  : image = level3;  break;
-            case 4  : image = level4;  break;
-            case 5  : image = level5;  break;
-            case 6  : image = level6;  break;
-            case 7  : image = level7;  break;
-            case 8  : image = level8;  break;
-            case 9  : image = level9;  break;
-            case 10 : image = level10; break;
-            case 11 : image = level11; break;
-            default : image = null; load = false;
+            case 1 -> image = level1;
+            case 2 -> image = level2;
+            case 3 -> image = level3;
+            case 4 -> image = level4;
+            case 5 -> image = level5;
+            case 6 -> image = level6;
+            case 7 -> image = level7;
+            case 8 -> image = level8;
+            case 9 -> image = level9;
+            case 10 -> image = level10;
+            case 11 -> image = level11;
+            default ->
+            {
+                image = null;
+                load = false;
+            }
         }
 
         if (load)
@@ -419,12 +422,6 @@ public class Game extends Canvas implements Runnable
     public static void main(String[] args)
     {
         new Game();
-        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable()
-        {
-            public void run()
-            {
-                Achievements.save();
-            }
-        }, "Shutdown-thread"));
+        Runtime.getRuntime().addShutdownHook(new Thread(Achievements::save, "Shutdown-thread"));
     }
 }

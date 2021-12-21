@@ -1,14 +1,13 @@
 package com.boxgame.main;
 
-/*
- * Author: soni801
- */
-
 import java.awt.image.BufferedImage;
 
+/**
+ * @author Soni
+ */
 public class SpriteSheet
 {
-    private BufferedImage sprite;
+    private final BufferedImage sprite;
 
     public SpriteSheet(BufferedImage ss)
     {
@@ -17,8 +16,6 @@ public class SpriteSheet
 
     public BufferedImage grabImage(int col, int row, int width, int height)
     {
-        BufferedImage img = sprite.getSubimage((row * 32) - 32, (col * 32) - 32, width, height);
-
-        return img;
+        return sprite.getSubimage((row * 32) - 32, (col * 32) - 32, width, height);
     }
 }

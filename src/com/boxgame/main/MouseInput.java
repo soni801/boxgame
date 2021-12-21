@@ -3,18 +3,21 @@ package com.boxgame.main;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+/**
+ * @author Soni
+ */
 public class MouseInput extends MouseAdapter
 {
-    private Game game;
-    private Handler handler;
-    private KeyInput keyInput;
-    private Settings settings;
-    private Menu menu;
-    private Paused paused;
-    private Help help;
-    private End end;
-    private Credits credits;
-    private Achievements achievements;
+    private final Game game;
+    private final Handler handler;
+    private final KeyInput keyInput;
+    private final Settings settings;
+    private final Menu menu;
+    private final Paused paused;
+    private final Help help;
+    private final End end;
+    private final Credits credits;
+    private final Achievements achievements;
 
     public MouseInput(Game game, Handler handler, KeyInput keyInput, Settings settings, Menu menu, Paused paused, Help help, End end, Credits credits, Achievements achievements)
     {
