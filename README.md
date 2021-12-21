@@ -20,5 +20,10 @@ luck?).
 
 I'm glad you asked. First, head over to the [releases](https://github.com/soni801/boxgame/releases) page. The release
 page should have both Linux and Windows binaries. If you own a Mac, first off, why? Second off, too bad. You really didn't
-miss out anyway. After you have downloaded the binary for your operating system, you can launch it. That should be
-everything. If it doesn't work, cry to me on Discord.
+miss out anyway. After you have downloaded the binary, the procedure will vary depending on your OS. On Windows there
+should be a `.exe` file in the root directory for you to open, meanwhile on linux the binary is located inside
+`bin/`. You might need to run `chmod +x path/to/binary` to make it executable. After that, you can launch it. If it
+doesn't work, cry to me on Discord @Soni#7454.
+
+There will also be a platform-independent `.jar` file that you can download if you prefer that. This should also run on
+macOS, although that has not been tested.
