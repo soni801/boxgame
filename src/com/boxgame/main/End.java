@@ -10,10 +10,12 @@ public class End
     public int mouseOver;
 
     private final Game game;
+    private final HUD hud;
 
-    public End(Game game)
+    public End(Game game, HUD hud)
     {
         this.game = game;
+        this.hud = hud;
 
         mouseOver = 0;
     }
@@ -30,5 +32,9 @@ public class End
         if (mouseOver == 1) g.fillRect(0, 520, Game.WIDTH, 30);
 
         g.drawImage(game.end_menu, 0, -45, null);
+
+        g.setColor(Color.BLACK);
+        g.setFont(new Font("arial", Font.PLAIN, 30));
+        g.drawString(String.format("Final time: %s:%s.%s", hud.timeSpent[2], hud.timeSpent[1], hud.timeSpent[0]), 10, 30);
     }
 }

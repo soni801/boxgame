@@ -13,7 +13,7 @@ import java.util.List;
 public class Game extends Canvas implements Runnable
 {
     public static final int WIDTH = 800, HEIGHT = WIDTH / 12 * 9;
-    public static final String VERSION = "1.2";
+    public static final String VERSION = "v2.0";
     public int level;
     public boolean inGame;
 
@@ -116,8 +116,8 @@ public class Game extends Canvas implements Runnable
 
         handler = new Handler();
         menu = new Menu(this);
-        end = new End(this);
         hud = new HUD(this);
+        end = new End(this, hud);
         paused = new Paused(this);
         help = new Help(this);
         credits = new Credits(this);
@@ -125,7 +125,7 @@ public class Game extends Canvas implements Runnable
         keyInput = new KeyInput(handler, this);
         settings = new Settings(keyInput, this);
         camera = new Camera(0, 0, this, settings);
-        mouseInput = new MouseInput(this, handler, keyInput, settings, menu, paused, help, end, credits, achievements);
+        mouseInput = new MouseInput(this, handler, keyInput, settings, menu, paused, help, end, credits, achievements, hud);
 
         this.addKeyListener(keyInput);
         this.addMouseListener(mouseInput);
@@ -386,29 +386,29 @@ public class Game extends Canvas implements Runnable
             int w = image.getWidth();
             int h = image.getHeight();
 
-            for (int xx = 0; xx < w; xx++)
+            for (int x = 0; x < w; x++)
             {
-                for (int yy = 0; yy < h; yy++)
+                for (int y = 0; y < h; y++)
                 {
-                    int pixel = image.getRGB(xx, yy);
+                    int pixel = image.getRGB(x, y);
                     int red = (pixel >> 16) & 0xff;
                     int green = (pixel >> 8) & 0xff;
                     int blue = (pixel) & 0xff;
 
                     if (red == 255 && blue == 0 && green == 0)
-                        handler.addObject(new Block(xx * 64, yy * 64, ID.Block, this));
+                        handler.addObject(new Block(x * 64, y * 64, ID.Block, this));
 
                     if (blue == 255 && red == 0 && green == 0)
-                        handler.addObject(new Player(xx * 64, yy * 64, ID.Player, handler, this, settings));
+                        handler.addObject(new Player(x * 64, y * 64, ID.Player, handler, this, settings));
 
                     if (green == 255 && red == 0 && blue == 0)
-                        handler.addObject(new Finish(xx * 64, yy * 64, ID.Finish, this));
+                        handler.addObject(new Finish(x * 64, y * 64, ID.Finish, this));
 
                     if (red == 255 && green == 255 && blue == 0)
-                        handler.addObject(new Teleporter(xx * 64, yy * 64, ID.Teleporter, this));
+                        handler.addObject(new Teleporter(x * 64, y * 64, ID.Teleporter, this));
 
                     if (red == 255 && green == 0 && blue == 255)
-                        handler.addObject(new Backer(xx * 64, yy * 64, ID.Backer, this));
+                        handler.addObject(new Backer(x * 64, y * 64, ID.Backer, this));
                 }
             }
         }

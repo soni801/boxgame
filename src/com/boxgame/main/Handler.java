@@ -1,6 +1,7 @@
 package com.boxgame.main;
 
 import java.awt.*;
+import java.util.ConcurrentModificationException;
 import java.util.LinkedList;
 
 /**
@@ -14,12 +15,14 @@ public class Handler
 
     public void tick()
     {
-        for (GameObject tempObject : object) tempObject.tick();
+        try { for (GameObject o : object) o.tick(); }
+        catch (ConcurrentModificationException ignored) { }
     }
 
     public void render(Graphics g)
     {
-        for (GameObject tempObject : object) tempObject.render(g);
+        try { for (GameObject o : object) o.render(g); }
+        catch (ConcurrentModificationException ignored) { }
     }
 
     public void addObject(GameObject object) { this.object.add(object); }
