@@ -1,6 +1,5 @@
 implement i18n
 rework skin selection
-add custom mouse cursor
 persistent settings & achievements
 rework achievement display
 implement discord rich presence

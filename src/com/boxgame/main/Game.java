@@ -185,7 +185,7 @@ public class Game extends Canvas implements Runnable
             if (System.currentTimeMillis() - timer > 1000)
             {
                 timer += 1000;
-                System.out.println("FPS: " + frames);
+                // System.out.println("FPS: " + frames);
                 frames = 0;
             }
         }
@@ -194,13 +194,8 @@ public class Game extends Canvas implements Runnable
 
     private void tick()
     {
-        for (int i = 0; i < handler.object.size(); i++)
-        {
-            if (handler.object.get(i).getId() == ID.Player)
-            {
-                camera.tick(handler.object.get(i));
-            }
-        }
+        try { for (GameObject o : handler.object) if (o instanceof Player) camera.tick(o); }
+        catch (Exception ignored) { }
 
         handler.tick();
 

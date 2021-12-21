@@ -8,7 +8,8 @@ import java.awt.image.BufferedImage;
  */
 public class Player extends GameObject
 {
-    private boolean collision;
+    public boolean up, down, left, right;
+
     private boolean loaded;
     private int timer;
     private int time = 0;
@@ -27,39 +28,37 @@ public class Player extends GameObject
         this.game = game;
         this.settings = settings;
 
-        collision = false;
         loaded = false;
         timer = 0;
     }
 
     public void tick()
     {
-        if (!collision)
-        {
-            x += velX;
-            y += velY;
-        }
-        collision = false;
+        // Handle movement
+        if (up && down) velY = 0;
+        else if (up) velY = -5;
+        else if (down) velY = 5;
+        else velY = 0;
 
-        for (int i = 0; i < handler.object.size(); i++)
-        {
-            GameObject tempObject = handler.object.get(i);
+        if (left && right) velX = 0;
+        else if (left) velX = -5;
+        else if (right) velX = 5;
+        else velX = 0;
 
-            if (getBounds().intersects(tempObject.getBounds()))
+        // Handle collision
+        for (GameObject o : handler.object)
+        {
+            if (this.getNextBounds().intersects(o.getBounds()))
             {
-                switch (tempObject.getId())
+                switch (o.getId())
                 {
-                    case Block :
-                        x += velX * -1;
-                        y += velY * -1;
-                        collision = true;
+                    case Block:
+                        if (o.x + 64 <= x + 5 || o.x >= x + 32 - 5) velX = 0; // Horizontal collision
+                        if (o.y + 64 <= y + 5 || o.y >= y + 32 - 5) velY = 0; // Vertical collision
                         Achievements.ACHIEVEMENT_3_STATUS = false;
                         break;
-                    case Finish :
-                        if (game.level == 1)
-                        {
-                            if (time <= 15) Achievements.ACHIEVEMENT_2 = true;
-                        }
+                    case Finish:
+                        if (game.level == 1 && time <= 15) Achievements.ACHIEVEMENT_2 = true;
                         if (!loaded)
                         {
                             game.level++;
@@ -69,7 +68,7 @@ public class Player extends GameObject
                             timer = 100;
                         }
                         break;
-                    case Teleporter :
+                    case Teleporter:
                         switch (game.level)
                         {
                             case 9 ->
@@ -89,26 +88,19 @@ public class Player extends GameObject
                             }
                         }
                         break;
-                    case Backer :
+                    case Backer:
                         game.loadLevel();
                         Achievements.ACHIEVEMENT_1_PROGRESS++;
-                        break;
                 }
             }
         }
 
-        //System.out.println(x + ", " + y);
+        // Update player position
+        x += velX;
+        y += velY;
 
         if (timer > 0) timer--;
         if (timer == 0) loaded = false;
-
-        if (handler.isUp()) velY = -5;
-        else if (handler.isDown()) velY = 5;
-        else velY = 0;
-
-        if (handler.isLeft()) velX = -5;
-        else if (handler.isRight()) velX = 5;
-        else velX = 0;
 
         SpriteSheet ss = new SpriteSheet(game.sprite_sheet);
         switch (settings.playerImage)
@@ -142,8 +134,6 @@ public class Player extends GameObject
         g.drawImage(player_image, x, y, 32, 32, null);
     }
 
-    public Rectangle getBounds()
-    {
-        return new Rectangle(x + 5, y + 4, 23, 26);
-    }
+    public Rectangle getBounds() { return new Rectangle(x, y, 32, 32); }
+    private Rectangle getNextBounds() { return new Rectangle(x + velX, y + velY, 32, 32); }
 }

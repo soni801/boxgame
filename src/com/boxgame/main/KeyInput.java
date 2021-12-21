@@ -61,10 +61,10 @@ public class KeyInput extends KeyAdapter
                         {
                             if (o instanceof Player)
                             {
-                                if (key == up) handler.setUp(true);
-                                if (key == down) handler.setDown(true);
-                                if (key == left) handler.setLeft(true);
-                                if (key == right) handler.setRight(true);
+                                if (key == up) ((Player) o).up = true;
+                                if (key == down) ((Player) o).down = true;
+                                if (key == left) ((Player) o).left = true;
+                                if (key == right) ((Player) o).right = true;
                             }
                         }
                         if (key == pause) game.gameState = STATE.Paused;
@@ -109,10 +109,10 @@ public class KeyInput extends KeyAdapter
         {
             if (o instanceof Player)
             {
-                if (key == up) handler.setUp(false);
-                if (key == down) handler.setDown(false);
-                if (key == left) handler.setLeft(false);
-                if (key == right) handler.setRight(false);
+                if (key == up) ((Player) o).up = false;
+                if (key == down) ((Player) o).down = false;
+                if (key == left) ((Player) o).left = false;
+                if (key == right) ((Player) o).right = false;
             }
         }
     }
