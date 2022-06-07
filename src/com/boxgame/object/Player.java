@@ -8,7 +8,6 @@ package com.boxgame.object;
 import com.boxgame.main.Game;
 import com.boxgame.main.GameObject;
 import com.boxgame.main.Handler;
-import com.boxgame.main.types.ID;
 import com.boxgame.main.util.SpriteSheet;
 import com.boxgame.state.Achievements;
 import com.boxgame.state.Settings;
@@ -34,9 +33,9 @@ public class Player extends GameObject
     private final Game game;
     private final Settings settings;
 
-    public Player(int x, int y, ID id, Handler handler, Game game, Settings settings)
+    public Player(int x, int y, Handler handler, Game game, Settings settings)
     {
-        super(x, y, id);
+        super(x, y);
         this.handler = handler;
         this.game = game;
         this.settings = settings;
@@ -59,51 +58,55 @@ public class Player extends GameObject
         else velX = 0;
 
         // Handle collision
+        // This is suboptimal, as collision is also handled for objects where a collision is impossible
         for (GameObject o : handler.object)
         {
             if (this.getNextBounds().intersects(o.getBounds()))
             {
-                switch (o.getId())
+                // Execute action based on type of object
+                if (o instanceof Block)
                 {
-                    case Block:
-                        if (o.x + 64 <= x + 5 || o.x >= x + 32 - 5) velX = 0; // Horizontal collision
-                        if (o.y + 64 <= y + 5 || o.y >= y + 32 - 5) velY = 0; // Vertical collision
-                        Achievements.ACHIEVEMENT_3_STATUS = false;
-                        break;
-                    case Finish:
-                        if (game.level == 1 && time <= 15) Achievements.ACHIEVEMENT_2 = true;
-                        if (!loaded)
-                        {
-                            game.level++;
-                            game.loadLevel();
-                            Achievements.ACHIEVEMENT_1_PROGRESS = 0;
-                            loaded = true;
-                            timer = 100;
-                        }
-                        break;
-                    case Teleporter:
-                        switch (game.level)
-                        {
-                            case 9 ->
-                            {
-                                x = 140;
-                                y = 1300;
-                            }
-                            case 10 ->
-                            {
-                                x = 2450;
-                                y = 2440;
-                            }
-                            case 11 ->
-                            {
-                                x = 2580;
-                                y = 1040;
-                            }
-                        }
-                        break;
-                    case Backer:
+                    if (o.x + 64 <= x + 5 || o.x >= x + 32 - 5) velX = 0; // Horizontal collision
+                    if (o.y + 64 <= y + 5 || o.y >= y + 32 - 5) velY = 0; // Vertical collision
+                    Achievements.ACHIEVEMENT_3_STATUS = false;
+                }
+                else if (o instanceof Finish)
+                {
+                    if (game.level == 1 && time <= 15) Achievements.ACHIEVEMENT_2 = true;
+                    if (!loaded)
+                    {
+                        game.level++;
                         game.loadLevel();
-                        Achievements.ACHIEVEMENT_1_PROGRESS++;
+                        Achievements.ACHIEVEMENT_1_PROGRESS = 0;
+                        loaded = true;
+                        timer = 100;
+                    }
+                }
+                else if (o instanceof Teleporter)
+                {
+                    switch (game.level)
+                    {
+                        case 9 ->
+                        {
+                            x = 140;
+                            y = 1300;
+                        }
+                        case 10 ->
+                        {
+                            x = 2450;
+                            y = 2440;
+                        }
+                        case 11 ->
+                        {
+                            x = 2580;
+                            y = 1040;
+                        }
+                    }
+                }
+                else if (o instanceof Backer)
+                {
+                    game.loadLevel();
+                    Achievements.ACHIEVEMENT_1_PROGRESS++;
                 }
             }
         }

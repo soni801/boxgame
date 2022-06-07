@@ -18,13 +18,19 @@ public class Handler
 
     public void tick()
     {
-        try { for (GameObject o : object) o.tick(); }
+        try
+        {
+            for (GameObject o : object) o.tick();
+        }
         catch (ConcurrentModificationException ignored) { }
     }
 
     public void render(Graphics g)
     {
-        try { for (GameObject o : object) o.render(g); }
+        try
+        {
+            for (GameObject o : object) o.render(g);
+        }
         catch (ConcurrentModificationException ignored) { }
     }
 

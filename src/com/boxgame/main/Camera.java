@@ -29,13 +29,13 @@ public class Camera
     {
         if (settings.smoothCamera)
         {
-            x += ((object.getX() - x)-(float) Game.WIDTH / 2) * 0.05f;
-            y += ((object.getY() - y)-(float) Game.HEIGHT / 2) * 0.05f;
+            x += ((object.x - x)-(float) Game.WIDTH / 2) * 0.05f;
+            y += ((object.y - y)-(float) Game.HEIGHT / 2) * 0.05f;
         }
         else
         {
-            x += ((object.getX() - x)-(float) Game.WIDTH / 2);
-            y += ((object.getY() - y)-(float) Game.HEIGHT / 2);
+            x += ((object.x - x)-(float) Game.WIDTH / 2);
+            y += ((object.y - y)-(float) Game.HEIGHT / 2);
         }
 
         if (x <= 0) x = 0;

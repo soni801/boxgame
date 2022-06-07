@@ -7,8 +7,6 @@ package com.boxgame.main;
 
 import com.boxgame.input.KeyInput;
 import com.boxgame.input.MouseInput;
-import com.boxgame.main.types.ID;
-import com.boxgame.main.types.State;
 import com.boxgame.main.util.BufferedImageLoader;
 import com.boxgame.main.util.Window;
 import com.boxgame.object.*;
@@ -46,19 +44,9 @@ public class Game extends Canvas implements Runnable
     private final Credits credits;
     private final Achievements achievements;
 
-    private final BufferedImage level1;
-    private final BufferedImage level2;
-    private final BufferedImage level3;
-    private final BufferedImage level4;
-    private final BufferedImage level5;
-    private final BufferedImage level6;
-    private final BufferedImage level7;
-    private final BufferedImage level8;
-    private final BufferedImage level9;
-    private final BufferedImage level10;
-    private final BufferedImage level11;
+    private final BufferedImage[] levels;
 
-    public File achievementsFile;
+    //public File achievementsFile;
 
     public BufferedImage main_menu;
     public BufferedImage pause_menu;
@@ -93,17 +81,18 @@ public class Game extends Canvas implements Runnable
 
         BufferedImageLoader loader = new BufferedImageLoader();
 
-        level1 = loader.loadImage("/levels/level1.png");
-        level2 = loader.loadImage("/levels/level2.png");
-        level3 = loader.loadImage("/levels/level3.png");
-        level4 = loader.loadImage("/levels/level4.png");
-        level5 = loader.loadImage("/levels/level5.png");
-        level6 = loader.loadImage("/levels/level6.png");
-        level7 = loader.loadImage("/levels/level7.png");
-        level8 = loader.loadImage("/levels/level8.png");
-        level9 = loader.loadImage("/levels/level9.png");
-        level10 = loader.loadImage("/levels/level10.png");
-        level11 = loader.loadImage("/levels/level11.png");
+        levels = new BufferedImage[11];
+        levels[0] = loader.loadImage("/levels/level1.png");
+        levels[1] = loader.loadImage("/levels/level2.png");
+        levels[2] = loader.loadImage("/levels/level3.png");
+        levels[3] = loader.loadImage("/levels/level4.png");
+        levels[4] = loader.loadImage("/levels/level5.png");
+        levels[5] = loader.loadImage("/levels/level6.png");
+        levels[6] = loader.loadImage("/levels/level7.png");
+        levels[7] = loader.loadImage("/levels/level8.png");
+        levels[8] = loader.loadImage("/levels/level9.png");
+        levels[9] = loader.loadImage("/levels/level10.png");
+        levels[10] = loader.loadImage("/levels/level11.png");
 
         main_menu = loader.loadImage("/menus/main_menu.png");
         pause_menu = loader.loadImage("/menus/pause_menu.png");
@@ -146,7 +135,7 @@ public class Game extends Canvas implements Runnable
         this.addMouseListener(mouseInput);
         this.addMouseMotionListener(mouseInput);
 
-        Achievements.load();
+        //Achievements.load();
 
         level = 0;
         inGame = false;
@@ -371,24 +360,11 @@ public class Game extends Canvas implements Runnable
         BufferedImage image;
         boolean load = true;
 
-        switch (level)
+        if (level > 0 && level < 12) image = levels[level - 1]; // TODO: Start level count at 0
+        else
         {
-            case 1 -> image = level1;
-            case 2 -> image = level2;
-            case 3 -> image = level3;
-            case 4 -> image = level4;
-            case 5 -> image = level5;
-            case 6 -> image = level6;
-            case 7 -> image = level7;
-            case 8 -> image = level8;
-            case 9 -> image = level9;
-            case 10 -> image = level10;
-            case 11 -> image = level11;
-            default ->
-            {
-                image = null;
-                load = false;
-            }
+            image = null;
+            load = false;
         }
 
         if (load)
@@ -406,11 +382,11 @@ public class Game extends Canvas implements Runnable
                     int g = (pixel >> 8) & 0xff;
                     int b = (pixel) & 0xff;
 
-                    if (r == 255 && b == 0 && g == 0) handler.addObject(new Block(x * 64, y * 64, ID.Block, this));
-                    if (b == 255 && r == 0 && g == 0) handler.addObject(new Player(x * 64, y * 64, ID.Player, handler, this, settings));
-                    if (g == 255 && r == 0 && b == 0) handler.addObject(new Finish(x * 64, y * 64, ID.Finish, this));
-                    if (r == 255 && g == 255 && b == 0) handler.addObject(new Teleporter(x * 64, y * 64, ID.Teleporter, this));
-                    if (r == 255 && g == 0 && b == 255) handler.addObject(new Backer(x * 64, y * 64, ID.Backer, this));
+                    if (r == 255 && b == 0 && g == 0) handler.addObject(new Block(x * 64, y * 64, this));
+                    if (b == 255 && r == 0 && g == 0) handler.addObject(new Player(x * 64, y * 64, handler, this, settings));
+                    if (g == 255 && r == 0 && b == 0) handler.addObject(new Finish(x * 64, y * 64, this));
+                    if (r == 255 && g == 255 && b == 0) handler.addObject(new Teleporter(x * 64, y * 64, this));
+                    if (r == 255 && g == 0 && b == 255) handler.addObject(new Backer(x * 64, y * 64, this));
                 }
             }
         }
@@ -437,6 +413,6 @@ public class Game extends Canvas implements Runnable
     public static void main(String[] args)
     {
         new Game();
-        Runtime.getRuntime().addShutdownHook(new Thread(Achievements::save, "Shutdown-thread"));
+        //Runtime.getRuntime().addShutdownHook(new Thread(Achievements::save, "Shutdown-thread"));
     }
 }

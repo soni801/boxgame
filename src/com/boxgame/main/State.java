@@ -3,7 +3,7 @@
  * Some rights reserved.
  */
 
-package com.boxgame.main.types;
+package com.boxgame.main;
 
 /**
  * @author Soni

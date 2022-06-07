@@ -30,19 +30,19 @@ public class Achievements
         Achievements.game = game;
     }
 
-    public static void load()
+    /*public static void load()
     {
         ACHIEVEMENT_1 = Boolean.parseBoolean(Game.getProperty(game.achievementsFile, "achievement-1", "false"));
         ACHIEVEMENT_2 = Boolean.parseBoolean(Game.getProperty(game.achievementsFile, "achievement-2", "false"));
         ACHIEVEMENT_3 = Boolean.parseBoolean(Game.getProperty(game.achievementsFile, "achievement-3", "false"));
-    }
+    }*/
 
-    public static void save()
+    /*public static void save()
     {
         Game.setProperty(game.achievementsFile, "achievement-1", String.valueOf(ACHIEVEMENT_1));
         Game.setProperty(game.achievementsFile, "achievement-2", String.valueOf(ACHIEVEMENT_2));
         Game.setProperty(game.achievementsFile, "achievement-3", String.valueOf(ACHIEVEMENT_3));
-    }
+    }*/
 
     public void tick() { }
 

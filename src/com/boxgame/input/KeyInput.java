@@ -8,7 +8,7 @@ package com.boxgame.input;
 import com.boxgame.main.Game;
 import com.boxgame.main.GameObject;
 import com.boxgame.main.Handler;
-import com.boxgame.main.types.State;
+import com.boxgame.main.State;
 import com.boxgame.object.Player;
 
 import java.awt.event.KeyAdapter;

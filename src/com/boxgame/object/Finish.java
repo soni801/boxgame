@@ -7,7 +7,6 @@ package com.boxgame.object;
 
 import com.boxgame.main.Game;
 import com.boxgame.main.GameObject;
-import com.boxgame.main.types.ID;
 
 import java.awt.*;
 
@@ -18,9 +17,9 @@ public class Finish extends GameObject
 {
     private final Game game;
 
-    public Finish(int x, int y, ID id, Game game)
+    public Finish(int x, int y, Game game)
     {
-        super(x, y, id);
+        super(x, y);
         this.game = game;
     }
 
