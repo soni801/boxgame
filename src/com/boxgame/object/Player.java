@@ -118,7 +118,7 @@ public class Player extends GameObject
         if (timer > 0) timer--;
         if (timer == 0) loaded = false;
 
-        TextureAtlas playerImages = new TextureAtlas(game.sprite_sheet, 32);
+        TextureAtlas playerImages = new TextureAtlas(game.spriteSheet, 32);
         switch (settings.playerImage)
         {
             case 1 -> player_image = playerImages.grabImage(0, 0);

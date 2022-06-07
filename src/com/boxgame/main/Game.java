@@ -43,15 +43,15 @@ public class Game extends Canvas implements Runnable
 
     private final BufferedImage[] levels;
 
-    public BufferedImage main_menu;
-    public BufferedImage pause_menu;
-    public BufferedImage settings_menu;
-    public BufferedImage settings_change_skin_menu;
-    public BufferedImage settings_camera_settings_menu;
-    public BufferedImage help_menu;
-    public BufferedImage end_menu;
-    public BufferedImage credits_menu;
-    public BufferedImage achievements_menu;
+    public BufferedImage mainMenu;
+    public BufferedImage pauseMenu;
+    public BufferedImage settingsMenu;
+    public BufferedImage settingsSkinMenu;
+    public BufferedImage settingsCameraMenu;
+    public BufferedImage helpMenu;
+    public BufferedImage endMenu;
+    public BufferedImage creditsMenu;
+    public BufferedImage achievementsMenu;
 
     public BufferedImage block;
     public BufferedImage floor;
@@ -60,7 +60,7 @@ public class Game extends Canvas implements Runnable
     public BufferedImage backer;
 
     public BufferedImage logo;
-    public BufferedImage sprite_sheet;
+    public BufferedImage spriteSheet;
     public BufferedImage on;
     public BufferedImage off;
 
@@ -83,15 +83,15 @@ public class Game extends Canvas implements Runnable
         levels[9] = loader.loadImage("/levels/level10.png");
         levels[10] = loader.loadImage("/levels/level11.png");
 
-        main_menu = loader.loadImage("/menus/main_menu.png");
-        pause_menu = loader.loadImage("/menus/pause_menu.png");
-        settings_menu = loader.loadImage("/menus/settings_menu.png");
-        settings_change_skin_menu = loader.loadImage("/menus/settings_change_skin_menu.png");
-        settings_camera_settings_menu = loader.loadImage("/menus/settings_camera_settings_menu.png");
-        help_menu = loader.loadImage("/menus/help_menu.png");
-        end_menu = loader.loadImage("/menus/end_menu.png");
-        credits_menu = loader.loadImage("/menus/credits_menu.png");
-        achievements_menu = loader.loadImage("/menus/achievements_menu.png");
+        mainMenu = loader.loadImage("/menus/main.png");
+        pauseMenu = loader.loadImage("/menus/pause.png");
+        settingsMenu = loader.loadImage("/menus/settings.png");
+        settingsSkinMenu = loader.loadImage("/menus/settings-skin.png");
+        settingsCameraMenu = loader.loadImage("/menus/settings-camera.png");
+        helpMenu = loader.loadImage("/menus/help.png");
+        endMenu = loader.loadImage("/menus/end.png");
+        creditsMenu = loader.loadImage("/menus/credits.png");
+        achievementsMenu = loader.loadImage("/menus/achievements.png");
 
         block = loader.loadImage("/textures/block.png");
         floor = loader.loadImage("/textures/floor.png");
@@ -100,7 +100,7 @@ public class Game extends Canvas implements Runnable
         backer = loader.loadImage("/textures/backer.png");
 
         logo = loader.loadImage("/logo.png");
-        sprite_sheet = loader.loadImage("/sprite_sheet.png");
+        spriteSheet = loader.loadImage("/sprite-sheet.png");
         on = loader.loadImage("/on.png");
         off = loader.loadImage("/off.png");
 

@@ -50,7 +50,7 @@ public class Paused
             case 5 -> g.fillRect(0, 520, Game.WIDTH, 30);
         }
 
-        g.drawImage(game.pause_menu, 0, -45, null);
+        g.drawImage(game.pauseMenu, 0, -45, null);
 
         g.setColor(Color.BLACK);
         g.setFont(new Font("arial", Font.PLAIN, 30));

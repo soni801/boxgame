@@ -53,7 +53,7 @@ public class Achievements
         if (mouseOver == 1)
             g.fillRect(0, 520, Game.WIDTH, 30);
 
-        g.drawImage(game.achievements_menu, 0, -45, null);
+        g.drawImage(game.achievementsMenu, 0, -45, null);
 
         g.setFont(new Font("arial", Font.BOLD, 30));
         FontMetrics metrics = g.getFontMetrics(new Font("arial", Font.BOLD, 30));

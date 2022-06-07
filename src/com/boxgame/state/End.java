@@ -38,7 +38,7 @@ public class End
 
         if (mouseOver == 1) g.fillRect(0, 520, Game.WIDTH, 30);
 
-        g.drawImage(game.end_menu, 0, -45, null);
+        g.drawImage(game.endMenu, 0, -45, null);
 
         g.setColor(Color.BLACK);
         g.setFont(new Font("arial", Font.PLAIN, 30));

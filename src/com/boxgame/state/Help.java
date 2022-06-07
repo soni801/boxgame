@@ -35,6 +35,6 @@ public class Help
         if (mouseOver == 1)
             g.fillRect(0, 520, Game.WIDTH, 30);
 
-        g.drawImage(game.help_menu, 0, -45, null);
+        g.drawImage(game.helpMenu, 0, -45, null);
     }
 }

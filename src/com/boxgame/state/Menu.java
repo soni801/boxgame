@@ -44,6 +44,6 @@ public class Menu
             case 6 -> g.fillRect(0, 520, Game.WIDTH, 30);
         }
 
-        g.drawImage(game.main_menu, 0, -45, null);
+        g.drawImage(game.mainMenu, 0, -45, null);
     }
 }

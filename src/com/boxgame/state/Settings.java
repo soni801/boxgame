@@ -59,7 +59,7 @@ public class Settings
                     case 3 -> g.fillRect(0, 490, Game.WIDTH, 30);
                     case 4 -> g.fillRect(0, 520, Game.WIDTH, 30);
                 }
-                g.drawImage(game.settings_menu, 0, -45, null);
+                g.drawImage(game.settingsMenu, 0, -45, null);
             }
             case 1 ->
             {
@@ -71,7 +71,7 @@ public class Settings
                 }
                 if (smoothCamera) g.drawImage(game.on, 185, 474, null);
                 else g.drawImage(game.off, 185, 474, null);
-                g.drawImage(game.settings_camera_settings_menu, 0, -45, null);
+                g.drawImage(game.settingsCameraMenu, 0, -45, null);
             }
             case 2 ->
             {
@@ -119,7 +119,7 @@ public class Settings
                     case 7 -> g.fillRect(0, 490, Game.WIDTH, 30);
                     case 8 -> g.fillRect(0, 520, Game.WIDTH, 30);
                 }
-                g.drawImage(game.settings_change_skin_menu, 0, -45, null);
+                g.drawImage(game.settingsSkinMenu, 0, -45, null);
             }
         }
     }
