@@ -369,24 +369,20 @@ public class Game extends Canvas implements Runnable
 
         if (load)
         {
-            int w = image.getWidth();
-            int h = image.getHeight();
+            final int w = image.getWidth();
+            final int h = image.getHeight();
 
             for (int x = 0; x < w; x++)
             {
                 for (int y = 0; y < h; y++)
                 {
-                    int pixel = image.getRGB(x, y);
+                    Color pixel = new Color(image.getRGB(x, y));
 
-                    int r = (pixel >> 16) & 0xff;
-                    int g = (pixel >> 8) & 0xff;
-                    int b = (pixel) & 0xff;
-
-                    if (r == 255 && b == 0 && g == 0) handler.addObject(new Block(x * 64, y * 64, this));
-                    if (b == 255 && r == 0 && g == 0) handler.addObject(new Player(x * 64, y * 64, handler, this, settings));
-                    if (g == 255 && r == 0 && b == 0) handler.addObject(new Finish(x * 64, y * 64, this));
-                    if (r == 255 && g == 255 && b == 0) handler.addObject(new Teleporter(x * 64, y * 64, this));
-                    if (r == 255 && g == 0 && b == 255) handler.addObject(new Backer(x * 64, y * 64, this));
+                    if (pixel.equals(Color.RED)) handler.addObject(new Block(x * 64, y * 64, this));
+                    if (pixel.equals(Color.BLUE)) handler.addObject(new Player(x * 64, y * 64, handler, this, settings));
+                    if (pixel.equals(Color.GREEN)) handler.addObject(new Finish(x * 64, y * 64, this));
+                    if (pixel.equals(Color.YELLOW)) handler.addObject(new Teleporter(x * 64, y * 64, this));
+                    if (pixel.equals(Color.MAGENTA)) handler.addObject(new Backer(x * 64, y * 64, this));
                 }
             }
         }
