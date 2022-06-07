@@ -28,7 +28,7 @@ import java.util.List;
 public class Game extends Canvas implements Runnable
 {
     public static final int WIDTH = 800, HEIGHT = WIDTH / 12 * 9;
-    public static final String VERSION = "v2.0";
+    public static final String VERSION = "v2.1";
     public int level;
     public boolean inGame;
 
@@ -36,7 +36,7 @@ public class Game extends Canvas implements Runnable
     private Thread thread;
     private boolean running = false;
 
-    private final com.boxgame.state.Menu menu;
+    private final Menu menu;
     private final Camera camera;
     private final End end;
     private final HUD hud;
