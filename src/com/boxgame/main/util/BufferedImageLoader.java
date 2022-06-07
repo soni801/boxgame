@@ -3,7 +3,7 @@
  * Some rights reserved.
  */
 
-package com.boxgame.main;
+package com.boxgame.main.util;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

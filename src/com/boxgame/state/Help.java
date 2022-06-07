@@ -3,20 +3,22 @@
  * Some rights reserved.
  */
 
-package com.boxgame.main;
+package com.boxgame.state;
+
+import com.boxgame.main.Game;
 
 import java.awt.*;
 
 /**
  * @author Soni
  */
-public class Credits
+public class Help
 {
     public int mouseOver;
 
     private final Game game;
 
-    public Credits(Game game)
+    public Help(Game game)
     {
         this.game = game;
     }
@@ -33,6 +35,6 @@ public class Credits
         if (mouseOver == 1)
             g.fillRect(0, 520, Game.WIDTH, 30);
 
-        g.drawImage(game.credits_menu, 0, -45, null);
+        g.drawImage(game.help_menu, 0, -45, null);
     }
 }

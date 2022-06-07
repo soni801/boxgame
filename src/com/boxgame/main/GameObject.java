@@ -5,6 +5,8 @@
 
 package com.boxgame.main;
 
+import com.boxgame.main.types.ID;
+
 import java.awt.*;
 
 /**
@@ -12,9 +14,9 @@ import java.awt.*;
  */
 public abstract class GameObject
 {
-    protected int x, y;
-    protected ID id;
-    protected int velX, velY;
+    public int x, y;
+    public ID id;
+    public int velX, velY;
 
     public GameObject(int x, int y, ID id)
     {

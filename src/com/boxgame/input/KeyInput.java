@@ -3,7 +3,13 @@
  * Some rights reserved.
  */
 
-package com.boxgame.main;
+package com.boxgame.input;
+
+import com.boxgame.main.Game;
+import com.boxgame.main.GameObject;
+import com.boxgame.main.Handler;
+import com.boxgame.main.types.State;
+import com.boxgame.object.Player;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -72,9 +78,9 @@ public class KeyInput extends KeyAdapter
                                 if (key == right) ((Player) o).right = true;
                             }
                         }
-                        if (key == pause) game.gameState = STATE.Paused;
+                        if (key == pause) game.gameState = State.Paused;
                         break;
-                    case Paused: if (key == pause) game.gameState = STATE.Game;
+                    case Paused: if (key == pause) game.gameState = State.Game;
                 }
                 break;
             case 1 :

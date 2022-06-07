@@ -3,7 +3,15 @@
  * Some rights reserved.
  */
 
-package com.boxgame.main;
+package com.boxgame.object;
+
+import com.boxgame.main.Game;
+import com.boxgame.main.GameObject;
+import com.boxgame.main.Handler;
+import com.boxgame.main.types.ID;
+import com.boxgame.main.util.SpriteSheet;
+import com.boxgame.state.Achievements;
+import com.boxgame.state.Settings;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

@@ -3,7 +3,13 @@
  * Some rights reserved.
  */
 
-package com.boxgame.main;
+package com.boxgame.input;
+
+import com.boxgame.main.Game;
+import com.boxgame.main.GameObject;
+import com.boxgame.main.Handler;
+import com.boxgame.main.types.State;
+import com.boxgame.state.*;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -53,25 +59,25 @@ public class MouseInput extends MouseAdapter
                 {
                     game.level = 1;
                     game.loadLevel();
-                    game.gameState = STATE.Game;
+                    game.gameState = State.Game;
                     game.inGame = true;
                     hud.startTime = System.currentTimeMillis();
                 }
                 else if (mouseOver(mx, my, 0, 400, Game.WIDTH, 30))
                 {
-                    game.gameState = STATE.Credits;
+                    game.gameState = State.Credits;
                 }
                 if (mouseOver(mx, my, 0, 430, Game.WIDTH, 30))
                 {
-                    game.gameState = STATE.Help;
+                    game.gameState = State.Help;
                 }
                 else if (mouseOver(mx, my, 0, 460, Game.WIDTH, 30))
                 {
-                    game.gameState = STATE.Achievements;
+                    game.gameState = State.Achievements;
                 }
                 else if (mouseOver(mx, my, 0, 490, Game.WIDTH, 30))
                 {
-                    game.gameState = STATE.Settings;
+                    game.gameState = State.Settings;
                 }
                 else if (mouseOver(mx, my, 0, 520, Game.WIDTH, 30))
                 {
@@ -81,7 +87,7 @@ public class MouseInput extends MouseAdapter
             case End:
                 if (mouseOver(mx, my, 0, 520, Game.WIDTH, 30))
                 {
-                    game.gameState = STATE.Menu;
+                    game.gameState = State.Menu;
                 }
                 break;
             case Settings:
@@ -104,8 +110,8 @@ public class MouseInput extends MouseAdapter
                         }
                         else if (mouseOver(mx, my, 0, 520, Game.WIDTH, 30))
                         {
-                            if (!game.inGame) game.gameState = STATE.Menu;
-                            else game.gameState = STATE.Paused;
+                            if (!game.inGame) game.gameState = State.Menu;
+                            else game.gameState = State.Paused;
                         }
                         break;
                     case 1:
@@ -190,19 +196,19 @@ public class MouseInput extends MouseAdapter
             case Paused:
                 if (mouseOver(mx, my, 0, 400, Game.WIDTH, 30))
                 {
-                    game.gameState = STATE.Game;
+                    game.gameState = State.Game;
                 }
                 else if (mouseOver(mx, my, 0, 430, Game.WIDTH, 30))
                 {
-                    game.gameState = STATE.Help;
+                    game.gameState = State.Help;
                 }
                 else if (mouseOver(mx, my, 0, 460, Game.WIDTH, 30))
                 {
-                    game.gameState = STATE.Settings;
+                    game.gameState = State.Settings;
                 }
                 else if (mouseOver(mx, my, 0, 490, Game.WIDTH, 30))
                 {
-                    game.gameState = STATE.Menu;
+                    game.gameState = State.Menu;
                     for (int i = handler.object.size(); handler.object.size() > 0; i--)
                     {
                         GameObject tempObject = handler.object.get(i - 1);
@@ -219,8 +225,8 @@ public class MouseInput extends MouseAdapter
             case Help: case Credits: case Achievements:
                 if (mouseOver(mx, my, 0, 520, Game.WIDTH, 30))
                 {
-                    if (!game.inGame) game.gameState = STATE.Menu;
-                    else game.gameState = STATE.Paused;
+                    if (!game.inGame) game.gameState = State.Menu;
+                    else game.gameState = State.Paused;
                 }
         }
     }
@@ -237,7 +243,7 @@ public class MouseInput extends MouseAdapter
         int mx = e.getX();
         int my = e.getY();
 
-        if (game.gameState == STATE.Menu)
+        if (game.gameState == State.Menu)
         {
             if (mouseOver(mx, my, 0, 370, Game.WIDTH, 30))
             {
@@ -265,7 +271,7 @@ public class MouseInput extends MouseAdapter
             }
             else menu.mouseOver = 0;
         }
-        else if (game.gameState == STATE.Paused)
+        else if (game.gameState == State.Paused)
         {
             if (mouseOver(mx, my, 0, 400, Game.WIDTH, 30))
             {
@@ -289,7 +295,7 @@ public class MouseInput extends MouseAdapter
             }
             else paused.mouseOver = 0;
         }
-        else if (game.gameState == STATE.Settings)
+        else if (game.gameState == State.Settings)
         {
             if (settings.page == 0)
             {
@@ -360,7 +366,7 @@ public class MouseInput extends MouseAdapter
                 else settings.mouseOver = 0;
             }
         }
-        else if (game.gameState == STATE.Help)
+        else if (game.gameState == State.Help)
         {
             if (mouseOver(mx, my, 0, 520, Game.WIDTH, 30))
             {
@@ -368,7 +374,7 @@ public class MouseInput extends MouseAdapter
             }
             else help.mouseOver = 0;
         }
-        else if (game.gameState == STATE.End)
+        else if (game.gameState == State.End)
         {
             if (mouseOver(mx, my, 0, 520, Game.WIDTH, 30))
             {
@@ -376,7 +382,7 @@ public class MouseInput extends MouseAdapter
             }
             else end.mouseOver = 0;
         }
-        else if (game.gameState == STATE.Credits)
+        else if (game.gameState == State.Credits)
         {
             if (mouseOver(mx, my, 0, 520, Game.WIDTH, 30))
             {
@@ -384,7 +390,7 @@ public class MouseInput extends MouseAdapter
             }
             else credits.mouseOver = 0;
         }
-        else if (game.gameState == STATE.Achievements)
+        else if (game.gameState == State.Achievements)
         {
             if (mouseOver(mx, my, 0, 520, Game.WIDTH, 30))
             {

@@ -3,7 +3,9 @@
  * Some rights reserved.
  */
 
-package com.boxgame.main;
+package com.boxgame.main.util;
+
+import com.boxgame.main.Game;
 
 import javax.swing.*;
 import java.awt.*;

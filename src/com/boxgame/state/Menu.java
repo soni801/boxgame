@@ -3,7 +3,9 @@
  * Some rights reserved.
  */
 
-package com.boxgame.main;
+package com.boxgame.state;
+
+import com.boxgame.main.Game;
 
 import java.awt.*;
 

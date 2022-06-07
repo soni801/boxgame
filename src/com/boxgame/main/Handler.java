@@ -14,7 +14,7 @@ import java.util.LinkedList;
  */
 public class Handler
 {
-    LinkedList<GameObject> object = new LinkedList<>();
+    public LinkedList<GameObject> object = new LinkedList<>();
 
     public void tick()
     {

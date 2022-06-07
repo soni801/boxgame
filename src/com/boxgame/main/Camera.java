@@ -5,6 +5,8 @@
 
 package com.boxgame.main;
 
+import com.boxgame.state.Settings;
+
 /**
  * @author Soni
  */

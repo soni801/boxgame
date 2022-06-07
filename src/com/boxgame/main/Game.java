@@ -5,6 +5,16 @@
 
 package com.boxgame.main;
 
+import com.boxgame.input.KeyInput;
+import com.boxgame.input.MouseInput;
+import com.boxgame.main.types.ID;
+import com.boxgame.main.types.State;
+import com.boxgame.main.util.BufferedImageLoader;
+import com.boxgame.main.util.Window;
+import com.boxgame.object.*;
+import com.boxgame.state.Menu;
+import com.boxgame.state.*;
+
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
@@ -26,7 +36,7 @@ public class Game extends Canvas implements Runnable
     private Thread thread;
     private boolean running = false;
 
-    private final Menu menu;
+    private final com.boxgame.state.Menu menu;
     private final Camera camera;
     private final End end;
     private final HUD hud;
@@ -48,30 +58,30 @@ public class Game extends Canvas implements Runnable
     private final BufferedImage level10;
     private final BufferedImage level11;
 
-    File achievementsFile;
+    public File achievementsFile;
 
-    BufferedImage main_menu;
-    BufferedImage pause_menu;
-    BufferedImage settings_menu;
-    BufferedImage settings_change_skin_menu;
-    BufferedImage settings_camera_settings_menu;
-    BufferedImage help_menu;
-    BufferedImage end_menu;
-    BufferedImage credits_menu;
-    BufferedImage achievements_menu;
+    public BufferedImage main_menu;
+    public BufferedImage pause_menu;
+    public BufferedImage settings_menu;
+    public BufferedImage settings_change_skin_menu;
+    public BufferedImage settings_camera_settings_menu;
+    public BufferedImage help_menu;
+    public BufferedImage end_menu;
+    public BufferedImage credits_menu;
+    public BufferedImage achievements_menu;
 
-    BufferedImage block;
-    BufferedImage floor;
-    BufferedImage finish;
-    BufferedImage teleporter;
-    BufferedImage backer;
+    public BufferedImage block;
+    public BufferedImage floor;
+    public BufferedImage finish;
+    public BufferedImage teleporter;
+    public BufferedImage backer;
 
-    BufferedImage logo;
-    BufferedImage sprite_sheet;
-    BufferedImage on;
-    BufferedImage off;
+    public BufferedImage logo;
+    public BufferedImage sprite_sheet;
+    public BufferedImage on;
+    public BufferedImage off;
 
-    public STATE gameState = STATE.Menu;
+    public State gameState = State.Menu;
 
     public Game()
     {
@@ -406,7 +416,7 @@ public class Game extends Canvas implements Runnable
         }
         else
         {
-            gameState = STATE.End;
+            gameState = State.End;
             inGame = false;
         }
     }
