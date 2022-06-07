@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2022. Samuel "Soni" Aasen
+ * Some rights reserved.
+ */
+
 package com.boxgame.main;
 
 import javax.swing.*;
