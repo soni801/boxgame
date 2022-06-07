@@ -31,7 +31,7 @@ public class Block extends GameObject
 
     @Override
     public void render(Graphics g)
-    {g.drawImage(game.block, pos[0], pos[1], 64,64, null);
+    {g.drawImage(game.blockTexture, pos[0], pos[1], 64,64, null);
 
     }
 

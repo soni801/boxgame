@@ -8,6 +8,7 @@ package com.boxgame.main;
 import com.boxgame.input.KeyInput;
 import com.boxgame.input.MouseInput;
 import com.boxgame.main.util.BufferedImageLoader;
+import com.boxgame.main.util.TextureAtlas;
 import com.boxgame.main.util.Window;
 import com.boxgame.object.*;
 import com.boxgame.state.Menu;
@@ -53,16 +54,20 @@ public class Game extends Canvas implements Runnable
     public BufferedImage creditsMenu;
     public BufferedImage achievementsMenu;
 
-    public BufferedImage block;
-    public BufferedImage floor;
-    public BufferedImage finish;
-    public BufferedImage teleporter;
-    public BufferedImage backer;
-
     public BufferedImage logo;
-    public BufferedImage spriteSheet;
+    public BufferedImage playerImage;
+    public BufferedImage tileImage;
     public BufferedImage on;
     public BufferedImage off;
+
+    public TextureAtlas playerAtlas;
+    public TextureAtlas tileAtlas;
+
+    public BufferedImage floorTexture;
+    public BufferedImage blockTexture;
+    public BufferedImage finishTexture;
+    public BufferedImage teleporterTexture;
+    public BufferedImage backerTexture;
 
     public State gameState = State.Menu;
 
@@ -93,16 +98,20 @@ public class Game extends Canvas implements Runnable
         creditsMenu = loader.loadImage("/menus/credits.png");
         achievementsMenu = loader.loadImage("/menus/achievements.png");
 
-        block = loader.loadImage("/textures/block.png");
-        floor = loader.loadImage("/textures/floor.png");
-        finish = loader.loadImage("/textures/finish.png");
-        teleporter = loader.loadImage("/textures/teleporter.png");
-        backer = loader.loadImage("/textures/backer.png");
-
         logo = loader.loadImage("/logo.png");
-        spriteSheet = loader.loadImage("/sprite-sheet.png");
+        playerImage = loader.loadImage("/atlases/players.png");
+        tileImage = loader.loadImage("/atlases/tiles.png");
         on = loader.loadImage("/on.png");
         off = loader.loadImage("/off.png");
+
+        playerAtlas = new TextureAtlas(playerImage, 32);
+        tileAtlas = new TextureAtlas(tileImage, 16);
+
+        floorTexture = tileAtlas.grabImage(0, 0);
+        blockTexture = tileAtlas.grabImage(1, 0);
+        finishTexture = tileAtlas.grabImage(2, 0);
+        teleporterTexture = tileAtlas.grabImage(0, 1);
+        backerTexture = tileAtlas.grabImage(3, 0);
 
         KeyInput keyInput;
         MouseInput mouseInput;
@@ -222,11 +231,11 @@ public class Game extends Canvas implements Runnable
 
         g2d.translate(-camera.x, -camera.y);
 
-        for (int xx = 0; xx < 30 * 100; xx += 32)
+        for (int xx = 0; xx < 30 * 100; xx += 64)
         {
-            for (int yy = 0; yy < 30 * 100; yy += 32)
+            for (int yy = 0; yy < 30 * 100; yy += 64)
             {
-                g.drawImage(floor, xx, yy, 32, 32, null);
+                g.drawImage(floorTexture, xx, yy, 64, 64, null);
             }
         }
 

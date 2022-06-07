@@ -30,7 +30,7 @@ public class Teleporter extends GameObject
 
     public void render(Graphics g)
     {
-        g.drawImage(game.teleporter, pos[0], pos[1], 64, 64, null);
+        g.drawImage(game.teleporterTexture, pos[0], pos[1], 64, 64, null);
     }
 
     public Rectangle getBounds()

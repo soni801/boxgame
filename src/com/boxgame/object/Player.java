@@ -8,7 +8,6 @@ package com.boxgame.object;
 import com.boxgame.main.Game;
 import com.boxgame.main.GameObject;
 import com.boxgame.main.Handler;
-import com.boxgame.main.util.TextureAtlas;
 import com.boxgame.state.Achievements;
 import com.boxgame.state.Settings;
 
@@ -118,17 +117,16 @@ public class Player extends GameObject
         if (timer > 0) timer--;
         if (timer == 0) loaded = false;
 
-        TextureAtlas playerImages = new TextureAtlas(game.spriteSheet, 32);
         switch (settings.playerImage)
         {
-            case 1 -> player_image = playerImages.grabImage(0, 0);
-            case 2 -> player_image = playerImages.grabImage(1, 0);
-            case 3 -> player_image = playerImages.grabImage(2, 0);
-            case 4 -> player_image = playerImages.grabImage(3, 0);
-            case 5 -> player_image = playerImages.grabImage(0, 1);
-            case 6 -> player_image = playerImages.grabImage(1, 1);
-            case 7 -> player_image = playerImages.grabImage(2, 1);
-            case 8 -> player_image = playerImages.grabImage(3, 1);
+            case 1 -> player_image = game.playerAtlas.grabImage(0, 0);
+            case 2 -> player_image = game.playerAtlas.grabImage(1, 0);
+            case 3 -> player_image = game.playerAtlas.grabImage(2, 0);
+            case 4 -> player_image = game.playerAtlas.grabImage(3, 0);
+            case 5 -> player_image = game.playerAtlas.grabImage(0, 1);
+            case 6 -> player_image = game.playerAtlas.grabImage(1, 1);
+            case 7 -> player_image = game.playerAtlas.grabImage(2, 1);
+            case 8 -> player_image = game.playerAtlas.grabImage(3, 1);
             default -> player_image = null;
         }
 

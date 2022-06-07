@@ -32,7 +32,7 @@ public class Finish extends GameObject
     @Override
     public void render(Graphics g)
     {
-        g.drawImage(game.finish, pos[0], pos[1], 64, 64, null);
+        g.drawImage(game.finishTexture, pos[0], pos[1], 64, 64, null);
     }
 
     @Override

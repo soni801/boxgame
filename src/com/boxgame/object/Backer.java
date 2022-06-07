@@ -30,7 +30,7 @@ public class Backer extends GameObject
 
     public void render(Graphics g)
     {
-        g.drawImage(game.backer, pos[0], pos[1], 64, 64, null);
+        g.drawImage(game.backerTexture, pos[0], pos[1], 64, 64, null);
     }
 
     @Override
