@@ -12,7 +12,7 @@ import com.boxgame.state.Settings;
  */
 public class Camera
 {
-    private float x, y;
+    float x, y;
 
     private final Game game;
     private final Settings settings;
@@ -29,13 +29,13 @@ public class Camera
     {
         if (settings.smoothCamera)
         {
-            x += ((object.x - x)-(float) Game.WIDTH / 2) * 0.05f;
-            y += ((object.y - y)-(float) Game.HEIGHT / 2) * 0.05f;
+            x += ((object.pos[0] - x)-(float) Game.WIDTH / 2) * 0.05f;
+            y += ((object.pos[1] - y)-(float) Game.HEIGHT / 2) * 0.05f;
         }
         else
         {
-            x += ((object.x - x)-(float) Game.WIDTH / 2);
-            y += ((object.y - y)-(float) Game.HEIGHT / 2);
+            x += ((object.pos[0] - x)-(float) Game.WIDTH / 2);
+            y += ((object.pos[1] - y)-(float) Game.HEIGHT / 2);
         }
 
         if (x <= 0) x = 0;
@@ -84,25 +84,5 @@ public class Camera
                 if (y >= 2187) y = 2187;
             }
         }
-    }
-
-    public float getX()
-    {
-        return x;
-    }
-
-    public void setX(float x)
-    {
-        this.x = x;
-    }
-
-    public float getY()
-    {
-        return y;
-    }
-
-    public void setY(float y)
-    {
-        this.y = y;
     }
 }

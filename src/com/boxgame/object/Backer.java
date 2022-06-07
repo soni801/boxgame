@@ -30,12 +30,12 @@ public class Backer extends GameObject
 
     public void render(Graphics g)
     {
-        g.drawImage(game.backer, x, y, 64, 64, null);
+        g.drawImage(game.backer, pos[0], pos[1], 64, 64, null);
     }
 
     @Override
     public Rectangle getBounds()
     {
-        return new Rectangle(x, y, 64, 64);
+        return new Rectangle(pos[0], pos[1], 64, 64);
     }
 }

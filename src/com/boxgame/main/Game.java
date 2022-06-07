@@ -16,9 +16,6 @@ import com.boxgame.state.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
-import java.io.*;
-import java.nio.file.Files;
-import java.util.List;
 
 /**
  * @author Soni
@@ -46,8 +43,6 @@ public class Game extends Canvas implements Runnable
 
     private final BufferedImage[] levels;
 
-    //public File achievementsFile;
-
     public BufferedImage main_menu;
     public BufferedImage pause_menu;
     public BufferedImage settings_menu;
@@ -73,12 +68,6 @@ public class Game extends Canvas implements Runnable
 
     public Game()
     {
-        // TODO: Fix the achievement code
-        //new File("C:\\Users\\" + System.getProperty("user.name") + "\\AppData\\Roaming\\soni801 games").mkdirs();
-        //new File("C:\\Users\\" + System.getProperty("user.name") + "\\AppData\\Roaming\\soni801 games\\boxgame").mkdirs();
-        //new File("C:\\Users\\" + System.getProperty("user.name") + "\\AppData\\Roaming\\soni801 games\\boxgame\\achievements.ini");
-        //achievementsFile = new File("C:\\Users\\" + System.getProperty("user.name") + "\\AppData\\Roaming\\soni801 games\\boxgame\\achievements.ini");
-
         BufferedImageLoader loader = new BufferedImageLoader();
 
         levels = new BufferedImage[11];
@@ -135,8 +124,6 @@ public class Game extends Canvas implements Runnable
         this.addMouseListener(mouseInput);
         this.addMouseMotionListener(mouseInput);
 
-        //Achievements.load();
-
         level = 0;
         inGame = false;
 
@@ -189,7 +176,6 @@ public class Game extends Canvas implements Runnable
             if (System.currentTimeMillis() - timer > 1000)
             {
                 timer += 1000;
-                // System.out.println("FPS: " + frames);
                 frames = 0;
             }
         }
@@ -198,7 +184,10 @@ public class Game extends Canvas implements Runnable
 
     private void tick()
     {
-        try { for (GameObject o : handler.object) if (o instanceof Player) camera.tick(o); }
+        try
+        {
+            for (GameObject o : handler.object) if (o instanceof Player) camera.tick(o);
+        }
         catch (Exception ignored) { }
 
         handler.tick();
@@ -231,7 +220,7 @@ public class Game extends Canvas implements Runnable
         Font font = new Font("arial", Font.PLAIN, 15);
         FontMetrics metrics = g.getFontMetrics(font);
 
-        g2d.translate(-camera.getX(), -camera.getY());
+        g2d.translate(-camera.x, -camera.y);
 
         for (int xx = 0; xx < 30 * 100; xx += 32)
         {
@@ -243,7 +232,7 @@ public class Game extends Canvas implements Runnable
 
         handler.render(g);
 
-        g2d.translate(camera.getX(), camera.getY());
+        g2d.translate(camera.x, camera.y);
 
         switch (gameState)
         {
@@ -263,89 +252,6 @@ public class Game extends Canvas implements Runnable
 
         g.dispose();
         bs.show();
-    }
-
-    public static String getProperty(File file, String key, String defaultAnswer)
-    {
-        boolean done = false;
-        String output = "";
-        try
-        {
-            BufferedReader reader = new BufferedReader(new FileReader(file));
-            while (!done)
-            {
-                output = reader.readLine();
-                if (output.startsWith(key))
-                {
-                    done = true;
-                }
-            }
-            return output.substring(key.length() + 1);
-        }
-        catch (Exception e)
-        {
-            System.out.println("Could not find property.");
-            System.out.println("Returning default answer. (" + defaultAnswer + ")");
-            return defaultAnswer;
-        }
-    }
-
-    public static void setProperty(File file, String key, String newProperty)
-    {
-        boolean done = false;
-        String input = "";
-        int line = 0;
-        List<String> lines;
-        if (file.exists())
-        {
-            try
-            {
-                BufferedReader reader = new BufferedReader(new FileReader(file));
-                while (!done)
-                {
-                    input = reader.readLine();
-                    if (input.startsWith(key))
-                    {
-                        done = true;
-                    }
-                    line++;
-                }
-                lines = Files.readAllLines(file.toPath());
-                lines.set(line - 1, input.substring(0, key.length() + 1) + newProperty);
-                Files.write(file.toPath(), lines);
-            }
-            catch (Exception e)
-            {
-                try
-                {
-                    lines = Files.readAllLines(file.toPath());
-                    lines.set(line, key + "=" + newProperty + "\n");
-                    Files.write(file.toPath(), lines);
-                }
-                catch (IOException e1)
-                {
-                    System.out.println("Could not set property.");
-                }
-            }
-        }
-        else
-        {
-            try
-            {
-                BufferedWriter writer = new BufferedWriter(new FileWriter(file));
-                writer.write("\n");
-                writer.close();
-
-                lines = Files.readAllLines(file.toPath());
-                lines.set(0, key + "=" + newProperty + "\n");
-                Files.write(file.toPath(), lines);
-            }
-            catch (Exception e)
-            {
-                System.out.println("Could not set property.");
-            }
-
-        }
     }
 
     public void loadLevel()
@@ -398,7 +304,6 @@ public class Game extends Canvas implements Runnable
         if (input.length() > length) input = input.substring(input.length() - length);
         else if (input.length() < length)
         {
-            // This uses StringBuilder because that is apparently better than +=
             StringBuilder inputBuilder = new StringBuilder(input);
             for (int i = length - inputBuilder.length(); i > 0; i--) inputBuilder.insert(0, "0");
             input = inputBuilder.toString();
@@ -409,6 +314,5 @@ public class Game extends Canvas implements Runnable
     public static void main(String[] args)
     {
         new Game();
-        //Runtime.getRuntime().addShutdownHook(new Thread(Achievements::save, "Shutdown-thread"));
     }
 }

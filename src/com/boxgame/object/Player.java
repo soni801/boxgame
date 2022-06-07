@@ -47,15 +47,15 @@ public class Player extends GameObject
     public void tick()
     {
         // Handle movement
-        if (up && down) velY = 0;
-        else if (up) velY = -5;
-        else if (down) velY = 5;
-        else velY = 0;
+        if (up && down) vel[1] = 0;
+        else if (up) vel[1] = -5;
+        else if (down) vel[1] = 5;
+        else vel[1] = 0;
 
-        if (left && right) velX = 0;
-        else if (left) velX = -5;
-        else if (right) velX = 5;
-        else velX = 0;
+        if (left && right) vel[0] = 0;
+        else if (left) vel[0] = -5;
+        else if (right) vel[0] = 5;
+        else vel[0] = 0;
 
         // Handle collision
         // This is suboptimal, as collision is also handled for objects where a collision is impossible
@@ -66,8 +66,8 @@ public class Player extends GameObject
                 // Execute action based on type of object
                 if (o instanceof Block)
                 {
-                    if (o.x + 64 <= x + 5 || o.x >= x + 32 - 5) velX = 0; // Horizontal collision
-                    if (o.y + 64 <= y + 5 || o.y >= y + 32 - 5) velY = 0; // Vertical collision
+                    if (o.pos[0] + 64 <= pos[0] + 5 || o.pos[0] >= pos[0] + 32 - 5) vel[0] = 0; // Horizontal collision
+                    if (o.pos[1] + 64 <= pos[1] + 5 || o.pos[1] >= pos[1] + 32 - 5) vel[1] = 0; // Vertical collision
                     Achievements.ACHIEVEMENT_3_STATUS = false;
                 }
                 else if (o instanceof Finish)
@@ -88,18 +88,18 @@ public class Player extends GameObject
                     {
                         case 9 ->
                         {
-                            x = 140;
-                            y = 1300;
+                            pos[0] = 140;
+                            pos[1] = 1300;
                         }
                         case 10 ->
                         {
-                            x = 2450;
-                            y = 2440;
+                            pos[0] = 2450;
+                            pos[1] = 2440;
                         }
                         case 11 ->
                         {
-                            x = 2580;
-                            y = 1040;
+                            pos[0] = 2580;
+                            pos[1] = 1040;
                         }
                     }
                 }
@@ -112,8 +112,8 @@ public class Player extends GameObject
         }
 
         // Update player position
-        x += velX;
-        y += velY;
+        pos[0] += vel[0];
+        pos[1] += vel[1];
 
         if (timer > 0) timer--;
         if (timer == 0) loaded = false;
@@ -147,9 +147,15 @@ public class Player extends GameObject
 
     public void render(Graphics g)
     {
-        g.drawImage(player_image, x, y, 32, 32, null);
+        g.drawImage(player_image, pos[0], pos[1], 32, 32, null);
     }
 
-    public Rectangle getBounds() { return new Rectangle(x, y, 32, 32); }
-    private Rectangle getNextBounds() { return new Rectangle(x + velX, y + velY, 32, 32); }
+    public Rectangle getBounds()
+    {
+        return new Rectangle(pos[0], pos[1], 32, 32);
+    }
+    private Rectangle getNextBounds()
+    {
+        return new Rectangle(pos[0] + vel[0], pos[1] + vel[1], 32, 32);
+    }
 }

@@ -12,13 +12,13 @@ import java.awt.*;
  */
 public abstract class GameObject
 {
-    public int x, y;
-    public int velX, velY;
+    public int[] pos = new int[2];
+    public int[] vel = new int[2];
 
     public GameObject(int x, int y)
     {
-        this.x = x;
-        this.y = y;
+        pos[0] = x;
+        pos[1] = y;
     }
 
     public abstract void tick();

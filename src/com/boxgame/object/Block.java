@@ -31,12 +31,12 @@ public class Block extends GameObject
 
     @Override
     public void render(Graphics g)
-    {g.drawImage(game.block, x, y, 64,64, null);
+    {g.drawImage(game.block, pos[0], pos[1], 64,64, null);
 
     }
 
     public Rectangle getBounds()
     {
-        return new Rectangle(x, y, 64, 64);
+        return new Rectangle(pos[0], pos[1], 64, 64);
     }
 }
