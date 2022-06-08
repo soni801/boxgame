@@ -17,6 +17,8 @@ import com.boxgame.state.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.Objects;
 
 /**
  * @author Soni
@@ -69,6 +71,10 @@ public class Game extends Canvas implements Runnable
     public BufferedImage teleporterTexture;
     public BufferedImage backerTexture;
 
+    public Font copperplateRegular;
+    public Font copperplateHeavy;
+    public Font copperplateLight;
+
     public State gameState = State.Menu;
 
     public Game()
@@ -76,33 +82,33 @@ public class Game extends Canvas implements Runnable
         BufferedImageLoader loader = new BufferedImageLoader();
 
         levels = new BufferedImage[11];
-        levels[0] = loader.loadImage("/levels/level1.png");
-        levels[1] = loader.loadImage("/levels/level2.png");
-        levels[2] = loader.loadImage("/levels/level3.png");
-        levels[3] = loader.loadImage("/levels/level4.png");
-        levels[4] = loader.loadImage("/levels/level5.png");
-        levels[5] = loader.loadImage("/levels/level6.png");
-        levels[6] = loader.loadImage("/levels/level7.png");
-        levels[7] = loader.loadImage("/levels/level8.png");
-        levels[8] = loader.loadImage("/levels/level9.png");
-        levels[9] = loader.loadImage("/levels/level10.png");
-        levels[10] = loader.loadImage("/levels/level11.png");
+        levels[0] = loader.loadImage("/images/levels/level1.png");
+        levels[1] = loader.loadImage("/images/levels/level2.png");
+        levels[2] = loader.loadImage("/images/levels/level3.png");
+        levels[3] = loader.loadImage("/images/levels/level4.png");
+        levels[4] = loader.loadImage("/images/levels/level5.png");
+        levels[5] = loader.loadImage("/images/levels/level6.png");
+        levels[6] = loader.loadImage("/images/levels/level7.png");
+        levels[7] = loader.loadImage("/images/levels/level8.png");
+        levels[8] = loader.loadImage("/images/levels/level9.png");
+        levels[9] = loader.loadImage("/images/levels/level10.png");
+        levels[10] = loader.loadImage("/images/levels/level11.png");
 
-        mainMenu = loader.loadImage("/menus/main.png");
-        pauseMenu = loader.loadImage("/menus/pause.png");
-        settingsMenu = loader.loadImage("/menus/settings.png");
-        settingsSkinMenu = loader.loadImage("/menus/settings-skin.png");
-        settingsCameraMenu = loader.loadImage("/menus/settings-camera.png");
-        helpMenu = loader.loadImage("/menus/help.png");
-        endMenu = loader.loadImage("/menus/end.png");
-        creditsMenu = loader.loadImage("/menus/credits.png");
-        achievementsMenu = loader.loadImage("/menus/achievements.png");
+        mainMenu = loader.loadImage("/images/menus/main.png");
+        pauseMenu = loader.loadImage("/images/menus/pause.png");
+        settingsMenu = loader.loadImage("/images/menus/settings.png");
+        settingsSkinMenu = loader.loadImage("/images/menus/settings-skin.png");
+        settingsCameraMenu = loader.loadImage("/images/menus/settings-camera.png");
+        helpMenu = loader.loadImage("/images/menus/help.png");
+        endMenu = loader.loadImage("/images/menus/end.png");
+        creditsMenu = loader.loadImage("/images/menus/credits.png");
+        achievementsMenu = loader.loadImage("/images/menus/achievements.png");
 
-        logo = loader.loadImage("/logo.png");
-        playerImage = loader.loadImage("/atlases/players.png");
-        tileImage = loader.loadImage("/atlases/tiles.png");
-        on = loader.loadImage("/on.png");
-        off = loader.loadImage("/off.png");
+        logo = loader.loadImage("/images/logo.png");
+        playerImage = loader.loadImage("/images/atlases/players.png");
+        tileImage = loader.loadImage("/images/atlases/tiles.png");
+        on = loader.loadImage("/images/on.png");
+        off = loader.loadImage("/images/off.png");
 
         playerAtlas = new TextureAtlas(playerImage, 32);
         tileAtlas = new TextureAtlas(tileImage, 16);
@@ -112,6 +118,20 @@ public class Game extends Canvas implements Runnable
         finishTexture = tileAtlas.grabImage(2, 0);
         teleporterTexture = tileAtlas.grabImage(0, 1);
         backerTexture = tileAtlas.grabImage(3, 0);
+
+        // Load fonts
+        try
+        {
+            copperplateRegular = Font.createFont(Font.TRUETYPE_FONT, Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("fonts/Copperplate.otf")));
+            copperplateHeavy = Font.createFont(Font.TRUETYPE_FONT, Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("fonts/Copperplate-Heavy.otf")));
+            copperplateLight = Font.createFont(Font.TRUETYPE_FONT, Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("fonts/Copperplate-Light.otf")));
+        }
+        catch (FontFormatException | IOException e)
+        {
+            copperplateRegular = new Font("arial", Font.PLAIN, 15);
+            copperplateHeavy = new Font("arial", Font.PLAIN, 15);
+            copperplateLight = new Font("arial", Font.PLAIN, 15);
+        }
 
         KeyInput keyInput;
         MouseInput mouseInput;
@@ -226,9 +246,6 @@ public class Game extends Canvas implements Runnable
         Graphics g = bs.getDrawGraphics();
         Graphics2D g2d = (Graphics2D) g;
 
-        Font font = new Font("arial", Font.PLAIN, 15);
-        FontMetrics metrics = g.getFontMetrics(font);
-
         g2d.translate(-camera.x, -camera.y);
 
         for (int xx = 0; xx < 30 * 100; xx += 64)
@@ -255,8 +272,10 @@ public class Game extends Canvas implements Runnable
             case Achievements -> achievements.render(g);
         }
 
-        g.setFont(font);
-        g.setColor(Color.BLACK);
+        FontMetrics metrics = g.getFontMetrics(copperplateRegular.deriveFont(20f));
+
+        g.setFont(copperplateRegular.deriveFont(20f));
+        g.setColor(Color.WHITE);
         g.drawString(VERSION, Game.WIDTH - 20 - metrics.stringWidth(VERSION), Game.HEIGHT - 45);
 
         g.dispose();
