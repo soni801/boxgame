@@ -26,7 +26,7 @@ import java.util.Objects;
 public class Game extends Canvas implements Runnable
 {
     public static final int WIDTH = 800, HEIGHT = WIDTH / 12 * 9;
-    public static final String VERSION = "v2.1";
+    public static final String VERSION = "v3.0";
     public int level;
     public boolean inGame;
 
