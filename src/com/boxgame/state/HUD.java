@@ -15,7 +15,7 @@ import java.awt.*;
 public class HUD
 {
     public long startTime;
-    public String[] timeSpent = new String[3];
+    public final String[] timeSpent = new String[3];
 
     private final Game game;
 

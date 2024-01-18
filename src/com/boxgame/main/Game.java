@@ -46,34 +46,32 @@ public class Game extends Canvas implements Runnable
 
     private final BufferedImage[] levels;
 
-    public BufferedImage mainMenu;
-    public BufferedImage pauseMenu;
-    public BufferedImage settingsMenu;
-    public BufferedImage settingsSkinMenu;
-    public BufferedImage settingsCameraMenu;
-    public BufferedImage helpMenu;
-    public BufferedImage endMenu;
-    public BufferedImage creditsMenu;
-    public BufferedImage achievementsMenu;
+    public final BufferedImage mainMenu;
+    public final BufferedImage pauseMenu;
+    public final BufferedImage settingsMenu;
+    public final BufferedImage settingsSkinMenu;
+    public final BufferedImage settingsCameraMenu;
+    public final BufferedImage helpMenu;
+    public final BufferedImage endMenu;
+    public final BufferedImage creditsMenu;
+    public final BufferedImage achievementsMenu;
 
-    public BufferedImage logo;
-    public BufferedImage playerImage;
-    public BufferedImage tileImage;
-    public BufferedImage on;
-    public BufferedImage off;
+    public final BufferedImage logo;
+    public final BufferedImage playerImage;
+    public final BufferedImage tileImage;
+    public final BufferedImage on;
+    public final BufferedImage off;
 
-    public TextureAtlas playerAtlas;
-    public TextureAtlas tileAtlas;
+    public final TextureAtlas playerAtlas;
+    public final TextureAtlas tileAtlas;
 
-    public BufferedImage floorTexture;
-    public BufferedImage blockTexture;
-    public BufferedImage finishTexture;
-    public BufferedImage teleporterTexture;
-    public BufferedImage backerTexture;
+    public final BufferedImage floorTexture;
+    public final BufferedImage blockTexture;
+    public final BufferedImage finishTexture;
+    public final BufferedImage teleporterTexture;
+    public final BufferedImage backerTexture;
 
     public Font copperplateRegular;
-    public Font copperplateHeavy;
-    public Font copperplateLight;
 
     public State gameState = State.Menu;
 
@@ -123,14 +121,10 @@ public class Game extends Canvas implements Runnable
         try
         {
             copperplateRegular = Font.createFont(Font.TRUETYPE_FONT, Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("fonts/Copperplate.otf")));
-            copperplateHeavy = Font.createFont(Font.TRUETYPE_FONT, Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("fonts/Copperplate-Heavy.otf")));
-            copperplateLight = Font.createFont(Font.TRUETYPE_FONT, Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("fonts/Copperplate-Light.otf")));
         }
         catch (FontFormatException | IOException e)
         {
             copperplateRegular = new Font("arial", Font.PLAIN, 15);
-            copperplateHeavy = new Font("arial", Font.PLAIN, 15);
-            copperplateLight = new Font("arial", Font.PLAIN, 15);
         }
 
         KeyInput keyInput;
@@ -284,12 +278,8 @@ public class Game extends Canvas implements Runnable
 
     public void loadLevel()
     {
-        for (int i = handler.object.size(); handler.object.size() > 0; i--)
-        {
-            GameObject tempObject = handler.object.get(i - 1);
-
-            handler.removeObject(tempObject);
-        }
+        // Remove all current game objects
+        handler.object.clear();
 
         BufferedImage image;
         boolean load = true;

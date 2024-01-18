@@ -12,8 +12,8 @@ import java.awt.*;
  */
 public abstract class GameObject
 {
-    public int[] pos = new int[2];
-    public int[] vel = new int[2];
+    public final int[] pos = new int[2];
+    public final int[] vel = new int[2];
 
     public GameObject(int x, int y)
     {

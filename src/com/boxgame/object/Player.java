@@ -58,54 +58,59 @@ public class Player extends GameObject
 
         // Handle collision
         // This is suboptimal, as collision is also handled for objects where a collision is impossible
+        // Okay it's actually terrible because it also tries to check collision with itself which will always be true lol
         for (GameObject o : handler.object)
         {
             if (this.getNextBounds().intersects(o.getBounds()))
             {
                 // Execute action based on type of object
-                if (o instanceof Block)
+                switch (o)
                 {
-                    if (o.pos[0] + 64 <= pos[0] + 5 || o.pos[0] >= pos[0] + 32 - 5) vel[0] = 0; // Horizontal collision
-                    if (o.pos[1] + 64 <= pos[1] + 5 || o.pos[1] >= pos[1] + 32 - 5) vel[1] = 0; // Vertical collision
-                    Achievements.ACHIEVEMENT_3_STATUS = false;
-                }
-                else if (o instanceof Finish)
-                {
-                    if (game.level == 1 && time <= 15) Achievements.ACHIEVEMENT_2 = true;
-                    if (!loaded)
+                    case Block ignored ->
                     {
-                        game.level++;
+                        if (o.pos[0] + 64 <= pos[0] + 5 || o.pos[0] >= pos[0] + 32 - 5) vel[0] = 0; // Horizontal collision
+                        if (o.pos[1] + 64 <= pos[1] + 5 || o.pos[1] >= pos[1] + 32 - 5) vel[1] = 0; // Vertical collision
+                        Achievements.ACHIEVEMENT_3_STATUS = false;
+                    }
+                    case Finish ignored ->
+                    {
+                        if (game.level == 1 && time <= 15) Achievements.ACHIEVEMENT_2 = true;
+                        if (!loaded)
+                        {
+                            game.level++;
+                            game.loadLevel();
+                            Achievements.ACHIEVEMENT_1_PROGRESS = 0;
+                            loaded = true;
+                            timer = 100;
+                        }
+                    }
+                    case Teleporter ignored ->
+                    {
+                        switch (game.level)
+                        {
+                            case 9 ->
+                            {
+                                pos[0] = 140;
+                                pos[1] = 1300;
+                            }
+                            case 10 ->
+                            {
+                                pos[0] = 2450;
+                                pos[1] = 2440;
+                            }
+                            case 11 ->
+                            {
+                                pos[0] = 2580;
+                                pos[1] = 1040;
+                            }
+                        }
+                    }
+                    case Backer ignored ->
+                    {
                         game.loadLevel();
-                        Achievements.ACHIEVEMENT_1_PROGRESS = 0;
-                        loaded = true;
-                        timer = 100;
+                        Achievements.ACHIEVEMENT_1_PROGRESS++;
                     }
-                }
-                else if (o instanceof Teleporter)
-                {
-                    switch (game.level)
-                    {
-                        case 9 ->
-                        {
-                            pos[0] = 140;
-                            pos[1] = 1300;
-                        }
-                        case 10 ->
-                        {
-                            pos[0] = 2450;
-                            pos[1] = 2440;
-                        }
-                        case 11 ->
-                        {
-                            pos[0] = 2580;
-                            pos[1] = 1040;
-                        }
-                    }
-                }
-                else if (o instanceof Backer)
-                {
-                    game.loadLevel();
-                    Achievements.ACHIEVEMENT_1_PROGRESS++;
+                    default -> {}
                 }
             }
         }

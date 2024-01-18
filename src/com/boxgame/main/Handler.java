@@ -14,7 +14,7 @@ import java.util.LinkedList;
  */
 public class Handler
 {
-    public LinkedList<GameObject> object = new LinkedList<>();
+    public final LinkedList<GameObject> object = new LinkedList<>();
 
     public void tick()
     {
@@ -22,7 +22,7 @@ public class Handler
         {
             for (GameObject o : object) o.tick();
         }
-        catch (ConcurrentModificationException ignored) { }
+        catch (ConcurrentModificationException | NullPointerException ignored) { }
     }
 
     public void render(Graphics g)
@@ -31,7 +31,7 @@ public class Handler
         {
             for (GameObject o : object) o.render(g);
         }
-        catch (ConcurrentModificationException ignored) { }
+        catch (ConcurrentModificationException | NullPointerException ignored) { }
     }
 
     public void addObject(GameObject object) { this.object.add(object); }

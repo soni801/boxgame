@@ -209,12 +209,7 @@ public class MouseInput extends MouseAdapter
                 else if (mouseOver(mx, my, 0, 490, Game.WIDTH, 30))
                 {
                     game.gameState = State.Menu;
-                    for (int i = handler.object.size(); handler.object.size() > 0; i--)
-                    {
-                        GameObject tempObject = handler.object.get(i - 1);
-
-                        handler.removeObject(tempObject);
-                    }
+                    handler.object.clear();
                     game.inGame = false;
                 }
                 else if (mouseOver(mx, my, 0, 520, Game.WIDTH, 30))
@@ -229,12 +224,6 @@ public class MouseInput extends MouseAdapter
                     else game.gameState = State.Paused;
                 }
         }
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e)
-    {
-
     }
 
     @Override
